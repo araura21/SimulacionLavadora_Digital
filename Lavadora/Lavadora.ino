@@ -1,14 +1,15 @@
 
 #include "SevSeg.h"
 
-SevSeg sevseg1; // Primer display (Horas y Minutos)
-SevSeg sevseg2; // Segundo display (Segundos)
+SevSeg sevseg1; 
+SevSeg sevseg2; 
 
 const int botonEncenderApagar = PC13;
 const int botonIniciarPausar = PC14;
 const int ledEncendido = PB2; 
 const int ledVerde = PB12;     
-const int ledRojo = PB13;     
+const int ledRojo = PB13;
+     
 
 int horas = 4, minutos = 4, segundos = 0;
 
