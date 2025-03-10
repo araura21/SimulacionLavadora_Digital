@@ -31,8 +31,8 @@ void setup() {
     byte segmentPins1[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
 
    
-    byte numDigits2 = 2;
-    byte digitPins2[] = {PB0, PB1};
+    byte numDigits2 = 4;
+    byte digitPins2[] = {PB6, PB7, PB0, PB1};
     byte segmentPins2[] = {PA2, PA3, PA4, PA5, PA6, PA7, PA8, PA9};
 
     bool resistorsOnSegments = true;
@@ -68,13 +68,26 @@ void setup() {
     sevseg2.blank();
 }
 
+// void loop() {
+//     manejarBotones();
+//     if (displayEncendido) {
+//         actualizarTemporizador();
+//         mostrarTiempo();
+//     }
+// }
+
 void loop() {
     manejarBotones();
     if (displayEncendido) {
         actualizarTemporizador();
         mostrarTiempo();
+
+        
+        digitalWrite(PB6, LOW);  
+        digitalWrite(PB7, LOW); 
     }
 }
+
 
 void manejarBotones() {
     // Botón Encender/Apagar
