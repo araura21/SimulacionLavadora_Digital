@@ -1,3 +1,4 @@
+
 #include "SevSeg.h"
 
 SevSeg sevseg1; // Primer display (Horas y Minutos)
@@ -5,6 +6,9 @@ SevSeg sevseg2; // Segundo display (Segundos)
 
 const int botonEncenderApagar = PC13;
 const int botonIniciarPausar = PC14;
+const int ledEncendido = PB2; 
+const int ledVerde = PB12;     
+const int ledRojo = PB13;     
 
 int horas = 4, minutos = 4, segundos = 0;
 
@@ -20,12 +24,12 @@ unsigned long lastDebounceTimeIniciar = 0;
 const unsigned long debounceDelay = 50;
 
 void setup() {
-    // Configuración para el primer display (horas y minutos)
+    
     byte numDigits1 = 4;
     byte digitPins1[] = {PC9, PC10, PC11, PC12};
     byte segmentPins1[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
 
-    // Configuración para el segundo display (segundos)
+   
     byte numDigits2 = 2;
     byte digitPins2[] = {PB0, PB1};
     byte segmentPins2[] = {PA2, PA3, PA4, PA5, PA6, PA7, PA8, PA9};
@@ -46,13 +50,21 @@ void setup() {
 
     pinMode(botonEncenderApagar, INPUT_PULLUP);
     pinMode(botonIniciarPausar, INPUT_PULLUP);
+    pinMode(ledEncendido, OUTPUT); 
+    pinMode(ledVerde, OUTPUT);     
+    pinMode(ledRojo, OUTPUT);     
 
-    // Mostrar la configuración inicial al encender
-    int tiempoHM = (horas * 100) + minutos;
-    sevseg1.setNumber(tiempoHM, 2);
+    digitalWrite(ledEncendido, LOW); 
+    digitalWrite(ledVerde, LOW);
+    digitalWrite(ledRojo, LOW);
+
+  
+    sevseg1.setNumber(horas * 100 + minutos, 2);
     sevseg2.setNumber(segundos, 2);
     sevseg1.refreshDisplay();
     sevseg2.refreshDisplay();
+    sevseg1.blank();
+    sevseg2.blank();
 }
 
 void loop() {
@@ -70,28 +82,42 @@ void manejarBotones() {
         if (estadoEncender == LOW) {
             displayEncendido = !displayEncendido;
             enMarcha = false;
-            if (!displayEncendido) {
-                horas = minutos = segundos = 0;
-                sevseg1.blank();
-                sevseg2.blank();
-            } else {
-                int tiempoHM = (horas * 100) + minutos;
-                sevseg1.setNumber(tiempoHM, 2);
+            
+            if (displayEncendido) {
+                digitalWrite(ledEncendido, HIGH); 
+                digitalWrite(ledVerde, LOW);     
+                digitalWrite(ledRojo, LOW);   
+                sevseg1.setNumber(horas * 100 + minutos, 2);
                 sevseg2.setNumber(segundos, 2);
                 sevseg1.refreshDisplay();
                 sevseg2.refreshDisplay();
+            } else {
+                digitalWrite(ledEncendido, LOW); 
+                digitalWrite(ledVerde, LOW);
+                digitalWrite(ledRojo, LOW);
+                horas = minutos = segundos = 0;
+                sevseg1.blank();
+                sevseg2.blank();
             }
         }
         lastDebounceTimeEncender = millis();
     }
     prevEstadoEncender = estadoEncender;
 
-    // Botón Iniciar/Pausar
+ 
     bool estadoIniciarPausar = digitalRead(botonIniciarPausar);
     if (estadoIniciarPausar != prevEstadoIniciar && (millis() - lastDebounceTimeIniciar > debounceDelay)) {
         if (estadoIniciarPausar == LOW) {
             enMarcha = !enMarcha;
             lastUpdateTime = millis();
+
+            if (enMarcha) {
+                digitalWrite(ledVerde, HIGH); 
+                digitalWrite(ledRojo, LOW);  
+            } else {
+                digitalWrite(ledVerde, LOW); 
+                digitalWrite(ledRojo, HIGH); 
+            }
         }
         lastDebounceTimeIniciar = millis();
     }
@@ -112,7 +138,9 @@ void actualizarTemporizador() {
                     horas = 0;
                     minutos = 0;
                     segundos = 0;
-                    enMarcha = false; // Detiene el conteo cuando llega a 00:00:00
+                    enMarcha = false; 
+                    digitalWrite(ledVerde, LOW);
+                    digitalWrite(ledRojo, LOW);
                 }
             }
         }
@@ -120,9 +148,9 @@ void actualizarTemporizador() {
 }
 
 void mostrarTiempo() {
-    int tiempoHM = (horas * 100) + minutos;
-    sevseg1.setNumber(tiempoHM, 2);
+    sevseg1.setNumber(horas * 100 + minutos, 2);
     sevseg2.setNumber(segundos, 2);
     sevseg1.refreshDisplay();
     sevseg2.refreshDisplay();
 }
+
