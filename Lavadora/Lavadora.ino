@@ -264,12 +264,12 @@ void manejarBotones() {
     }
 
     if (!enMarcha && debounce(botonCantidadRopa, prevEstadoRopa, lastUpdateTime)) {
-        cantidadSeleccionada = (cantidadSeleccionada % 3) + 1;
+        cantidadSeleccionada = (cantidadSeleccionada % 4) + 1;
         configurarCantidadRopa(cantidadSeleccionada);
     }
 
     if (!enMarcha && debounce(botonSeleccionarLavado, prevEstadoTipoLavado, lastUpdateTime)) {
-        tipoLavadoSeleccionado = (tipoLavadoSeleccionado % 3) + 1;
+        tipoLavadoSeleccionado = (tipoLavadoSeleccionado % 4) + 1;
         configurarTipoLavado(tipoLavadoSeleccionado);
     }
 }
@@ -279,10 +279,35 @@ void configurarTipoLavado(int tipo) {
     digitalWrite(ledLavRapido, LOW);
     digitalWrite(ledLavFuerte, LOW);
 
+    digitalWrite(ledLav10, LOW);
+    digitalWrite(ledEnjuague2, LOW);
+    digitalWrite(ledCentrifugadoMedio, LOW);
+    digitalWrite(ledLav5, LOW);
+    digitalWrite(ledEnjuague1, LOW);
+    digitalWrite(ledCentrifugadoBajo, LOW); 
+    digitalWrite(ledLav20, LOW);
+    digitalWrite(ledEnjuague3, LOW);
+    digitalWrite(ledCentrifugadoAlto, LOW); 
+
     switch (tipo) {
-        case 1: digitalWrite(ledLavFuerte, HIGH); minutos = 40; segundos = 0; break;
-        case 2: digitalWrite(ledLavRapido, HIGH); minutos = 1; segundos = 0; break;
-        case 3: digitalWrite(ledLavNormal, HIGH); minutos = 5; segundos = 0; break;
+        case 1: 
+            digitalWrite(ledLavFuerte, HIGH); minutos = 40; segundos = 0; 
+            digitalWrite(ledLav20, HIGH);
+            digitalWrite(ledEnjuague3, HIGH);
+            digitalWrite(ledCentrifugadoAlto, HIGH);
+            break;
+        case 2: 
+            digitalWrite(ledLavRapido, HIGH); minutos = 1; segundos = 0;
+            digitalWrite(ledLav5, HIGH);
+            digitalWrite(ledEnjuague1, HIGH);
+            digitalWrite(ledCentrifugadoBajo, HIGH); 
+            break;
+        case 3: 
+            digitalWrite(ledLavNormal, HIGH); minutos = 5; segundos = 0;
+            digitalWrite(ledLav10, HIGH);
+            digitalWrite(ledEnjuague2, HIGH);
+            digitalWrite(ledCentrifugadoMedio, HIGH); 
+            break;
         default:
             minutos = 0;
             segundos = 0;
@@ -301,6 +326,10 @@ void configurarCantidadRopa(int cantidad) {
       case 2: digitalWrite(led12kg, HIGH); horas = 0; minutos = 2; 
             break;
       case 3: digitalWrite(led18kg, HIGH); horas = 0; minutos = 3; 
+            break;
+      default:
+            horas = 0;
+            minutos = 0;
             break;
   }
 }
