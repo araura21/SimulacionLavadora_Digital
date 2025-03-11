@@ -9,7 +9,12 @@ const int botonIniciarPausar = PC14;
 const int ledEncendido = PB2; 
 const int ledVerde = PB12;     
 const int ledRojo = PB13;
-     
+const int botonSeleccionar = PB3; // Botón para seleccionar la cantidad de ropa
+
+// LEDs para cada cantidad de ropa
+const int led18kg = PB8;
+const int led12kg = PB9;
+const int led7kg = PB10;
 
 int horas = 4, minutos = 4, segundos = 0;
 
@@ -18,19 +23,21 @@ bool enMarcha = false;
 
 bool prevEstadoEncender = HIGH;
 bool prevEstadoIniciar = HIGH;
+bool prevEstadoSeleccionar = HIGH; // Variable para el botón de selección
 
 unsigned long lastUpdateTime = 0;
 unsigned long lastDebounceTimeEncender = 0;
 unsigned long lastDebounceTimeIniciar = 0;
+unsigned long lastDebounceTimeSeleccionar = 0; // Tiempo de debounce para el botón de selección
 const unsigned long debounceDelay = 50;
 
+int cantidadSeleccionada = 0; // Variable para controlar la cantidad seleccionada
+
 void setup() {
-    
     byte numDigits1 = 4;
     byte digitPins1[] = {PC9, PC10, PC11, PC12};
     byte segmentPins1[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
 
-   
     byte numDigits2 = 4;
     byte digitPins2[] = {PB6, PB7, PB0, PB1};
     byte segmentPins2[] = {PA2, PA3, PA4, PA5, PA6, PA7, PA8, PA9};
@@ -54,12 +61,19 @@ void setup() {
     pinMode(ledEncendido, OUTPUT); 
     pinMode(ledVerde, OUTPUT);     
     pinMode(ledRojo, OUTPUT);     
+    pinMode(botonSeleccionar, INPUT_PULLUP); // Configuración del botón de seleccionar
+
+    pinMode(led18kg, OUTPUT);
+    pinMode(led12kg, OUTPUT);
+    pinMode(led7kg, OUTPUT);
 
     digitalWrite(ledEncendido, LOW); 
     digitalWrite(ledVerde, LOW);
     digitalWrite(ledRojo, LOW);
+    digitalWrite(led18kg, LOW); // LEDs apagados por defecto
+    digitalWrite(led12kg, LOW);
+    digitalWrite(led7kg, LOW);
 
-  
     sevseg1.setNumber(horas * 100 + minutos, 2);
     sevseg2.setNumber(segundos, 2);
     sevseg1.refreshDisplay();
@@ -68,26 +82,16 @@ void setup() {
     sevseg2.blank();
 }
 
-// void loop() {
-//     manejarBotones();
-//     if (displayEncendido) {
-//         actualizarTemporizador();
-//         mostrarTiempo();
-//     }
-// }
-
 void loop() {
     manejarBotones();
     if (displayEncendido) {
         actualizarTemporizador();
         mostrarTiempo();
 
-        
         digitalWrite(PB6, LOW);  
         digitalWrite(PB7, LOW); 
     }
 }
-
 
 void manejarBotones() {
     // Botón Encender/Apagar
@@ -118,7 +122,7 @@ void manejarBotones() {
     }
     prevEstadoEncender = estadoEncender;
 
- 
+    // Botón Iniciar/Pausar
     bool estadoIniciarPausar = digitalRead(botonIniciarPausar);
     if (estadoIniciarPausar != prevEstadoIniciar && (millis() - lastDebounceTimeIniciar > debounceDelay)) {
         if (estadoIniciarPausar == LOW) {
@@ -136,6 +140,35 @@ void manejarBotones() {
         lastDebounceTimeIniciar = millis();
     }
     prevEstadoIniciar = estadoIniciarPausar;
+
+    // Botón Seleccionar cantidad
+    bool estadoSeleccionar = digitalRead(botonSeleccionar);
+    if (estadoSeleccionar != prevEstadoSeleccionar && (millis() - lastDebounceTimeSeleccionar > debounceDelay)) {
+        if (estadoSeleccionar == LOW) {
+            cantidadSeleccionada++; // Aumentar la cantidad seleccionada
+            if (cantidadSeleccionada > 3) cantidadSeleccionada = 1; // Ciclar la selección entre 1 y 3
+
+            // Apagar todos los LEDs primero
+            digitalWrite(led18kg, LOW);
+            digitalWrite(led12kg, LOW);
+            digitalWrite(led7kg, LOW);
+
+            // Encender el LED correspondiente según la cantidad seleccionada
+            switch (cantidadSeleccionada) {
+                case 1:
+                    digitalWrite(led7kg, HIGH);
+                    break;
+                case 2:
+                    digitalWrite(led12kg, HIGH);
+                    break;
+                case 3:
+                    digitalWrite(led18kg, HIGH);
+                    break;
+            }
+        }
+        lastDebounceTimeSeleccionar = millis();
+    }
+    prevEstadoSeleccionar = estadoSeleccionar;
 }
 
 void actualizarTemporizador() {
@@ -167,4 +200,5 @@ void mostrarTiempo() {
     sevseg1.refreshDisplay();
     sevseg2.refreshDisplay();
 }
+
 
