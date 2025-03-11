@@ -1,200 +1,191 @@
-
 #include "SevSeg.h"
 
-SevSeg sevseg1; 
-SevSeg sevseg2; 
+SevSeg sevseg1;
+SevSeg sevseg2;
 
 const int botonEncenderApagar = PC13;
 const int botonIniciarPausar = PC14;
-const int ledEncendido = PB2; 
-const int ledVerde = PB12;     
+const int botonCantidadRopa = PB3;
+const int botonSeleccionarLavado = PB14;
+
+const int ledEncendido = PB2;
+const int ledVerde = PB12;
 const int ledRojo = PB13;
-const int botonSeleccionar = PB3;
-
-
 const int led18kg = PB8;
 const int led12kg = PB9;
 const int led7kg = PB10;
+const int ledLavNormal = PB4;
+const int ledLavRapido = PB5;
+const int ledLavFuerte = PB11;
 
 int horas = 0, minutos = 0, segundos = 0;
-
-bool displayEncendido = false;
+bool sistemaEncendido = false; // Cambié el nombre de displayEncendido a sistemaEncendido
 bool enMarcha = false;
+int cantidadSeleccionada = 0;
+int tipoLavadoSeleccionado = 0;
 
 bool prevEstadoEncender = HIGH;
 bool prevEstadoIniciar = HIGH;
-bool prevEstadoSeleccionar = HIGH;
+bool prevEstadoSeleccionarRopa = HIGH;
+bool prevEstadoSeleccionarLavado = HIGH;
 
 unsigned long lastUpdateTime = 0;
-unsigned long lastDebounceTimeEncender = 0;
-unsigned long lastDebounceTimeIniciar = 0;
-unsigned long lastDebounceTimeSeleccionar = 0; 
 const unsigned long debounceDelay = 50;
 
-int cantidadSeleccionada = 0;
 void setup() {
-    byte numDigits1 = 4;
-    byte digitPins1[] = {PC9, PC10, PC11, PC12};
-    byte segmentPins1[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
-
-    byte numDigits2 = 4;
-    byte digitPins2[] = {PB6, PB7, PB0, PB1};
-    byte segmentPins2[] = {PA2, PA3, PA4, PA5, PA6, PA7, PA8, PA9};
-
-    bool resistorsOnSegments = true;
-    byte hardwareConfig = COMMON_ANODE;
-    bool updateWithDelays = false;
-    bool leadingZeros = false;
-    bool disableDecPoint = false;
-
-    sevseg1.begin(hardwareConfig, numDigits1, digitPins1, segmentPins1,
-                  resistorsOnSegments, updateWithDelays, leadingZeros, disableDecPoint);
-    sevseg2.begin(hardwareConfig, numDigits2, digitPins2, segmentPins2,
-                  resistorsOnSegments, updateWithDelays, leadingZeros, disableDecPoint);
-
-    sevseg1.setBrightness(90);
-    sevseg2.setBrightness(90);
-
-    pinMode(botonEncenderApagar, INPUT_PULLUP);
-    pinMode(botonIniciarPausar, INPUT_PULLUP);
-    pinMode(ledEncendido, OUTPUT); 
-    pinMode(ledVerde, OUTPUT);     
-    pinMode(ledRojo, OUTPUT);     
-    pinMode(botonSeleccionar, INPUT_PULLUP); // Configuración del botón de seleccionar
-
-    pinMode(led18kg, OUTPUT);
-    pinMode(led12kg, OUTPUT);
-    pinMode(led7kg, OUTPUT);
-
-    digitalWrite(ledEncendido, LOW); 
-    digitalWrite(ledVerde, LOW);
-    digitalWrite(ledRojo, LOW);
-    digitalWrite(led18kg, LOW); // LEDs apagados por defecto
-    digitalWrite(led12kg, LOW);
-    digitalWrite(led7kg, LOW);
-
-    sevseg1.setNumber(horas * 100 + minutos, 2);
-    sevseg2.setNumber(segundos, 2);
-    sevseg1.refreshDisplay();
-    sevseg2.refreshDisplay();
+    configurarDisplay();
+    configurarBotones();
+    configurarLEDs();
     sevseg1.blank();
     sevseg2.blank();
 }
 
 void loop() {
-    manejarBotones();
-    if (displayEncendido) {
+    manejarBotonEncender(); // Solo se manejará este botón si el sistema está apagado
+
+    if (sistemaEncendido) {
+        manejarBotones();
         actualizarTemporizador();
         mostrarTiempo();
+    } else {
+        apagarTodo(); // Si el sistema está apagado, asegurarse de que todo esté apagado
+    }
+}
 
-        digitalWrite(PB6, LOW);  
-        digitalWrite(PB7, LOW); 
+void configurarDisplay() {
+    byte digitPins1[] = {PC9, PC10, PC11, PC12};
+    byte segmentPins1[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
+    sevseg1.begin(COMMON_ANODE, 4, digitPins1, segmentPins1, true, false, false, false);
+
+    byte digitPins2[] = {PB6, PB7, PB0, PB1};
+    byte segmentPins2[] = {PA2, PA3, PA4, PA5, PA6, PA7, PA8, PA9};
+    sevseg2.begin(COMMON_ANODE, 4, digitPins2, segmentPins2, true, false, false, false);
+
+    sevseg1.setBrightness(90);
+    sevseg2.setBrightness(90);
+}
+
+void configurarBotones() {
+    pinMode(botonEncenderApagar, INPUT_PULLUP);
+    pinMode(botonIniciarPausar, INPUT_PULLUP);
+    pinMode(botonCantidadRopa, INPUT_PULLUP);
+    pinMode(botonSeleccionarLavado, INPUT_PULLUP);
+}
+
+void configurarLEDs() {
+    int leds[] = {ledEncendido, ledVerde, ledRojo, led18kg, led12kg, led7kg, ledLavNormal, ledLavRapido, ledLavFuerte};
+    for (int i = 0; i < 9; i++) {
+        pinMode(leds[i], OUTPUT);
+        digitalWrite(leds[i], LOW); // Asegurar que todos los LEDs están apagados al iniciar
+    }
+}
+
+bool debounce(int pin, bool &prevEstado, unsigned long &lastDebounceTime) {
+    bool estado = digitalRead(pin);
+    if (estado != prevEstado && (millis() - lastDebounceTime > debounceDelay)) {
+        lastDebounceTime = millis();
+        prevEstado = estado;
+        return estado == LOW;
+    }
+    return false;
+}
+
+// Maneja solo el botón de encendido
+void manejarBotonEncender() {
+    if (debounce(botonEncenderApagar, prevEstadoEncender, lastUpdateTime)) {
+        sistemaEncendido = !sistemaEncendido;
+        digitalWrite(ledEncendido, sistemaEncendido ? HIGH : LOW);
+
+        if (!sistemaEncendido) {
+            apagarTodo();
+        }
+    }
+}
+
+// Apagar todo si el sistema está apagado
+void apagarTodo() {
+    enMarcha = false;
+    cantidadSeleccionada = 0;
+    tipoLavadoSeleccionado = 0;
+    horas = minutos = segundos = 0;
+
+    sevseg1.blank();
+    sevseg2.blank();
+
+    int leds[] = {ledEncendido, ledVerde, ledRojo, led18kg, led12kg, led7kg, ledLavNormal, ledLavRapido, ledLavFuerte};
+    for (int i = 0; i < 9; i++) {
+        digitalWrite(leds[i], LOW);
     }
 }
 
 void manejarBotones() {
-    // Botón Encender/Apagar
-    bool estadoEncender = digitalRead(botonEncenderApagar);
-    if (estadoEncender != prevEstadoEncender && (millis() - lastDebounceTimeEncender > debounceDelay)) {
-        if (estadoEncender == LOW) {
-            displayEncendido = !displayEncendido;
-            enMarcha = false;
-            
-            if (displayEncendido) {
-                digitalWrite(ledEncendido, HIGH); 
-                digitalWrite(ledVerde, LOW);     
-                digitalWrite(ledRojo, LOW);   
-                sevseg1.setNumber(horas * 100 + minutos, 2);
-                sevseg2.setNumber(segundos, 2);
-                sevseg1.refreshDisplay();
-                sevseg2.refreshDisplay();
-            } else {
-                digitalWrite(ledEncendido, LOW); 
-                digitalWrite(ledVerde, LOW);
-                digitalWrite(ledRojo, LOW);
-                horas = minutos = segundos = 0;
-                sevseg1.blank();
-                sevseg2.blank();
-            }
-        }
-        lastDebounceTimeEncender = millis();
+    if (debounce(botonIniciarPausar, prevEstadoIniciar, lastUpdateTime)) {
+        enMarcha = !enMarcha;
+        digitalWrite(ledVerde, enMarcha ? HIGH : LOW);
+        digitalWrite(ledRojo, enMarcha ? LOW : HIGH);
+        lastUpdateTime = millis();
     }
-    prevEstadoEncender = estadoEncender;
 
-    // Botón Iniciar/Pausar
-    bool estadoIniciarPausar = digitalRead(botonIniciarPausar);
-    if (estadoIniciarPausar != prevEstadoIniciar && (millis() - lastDebounceTimeIniciar > debounceDelay)) {
-        if (estadoIniciarPausar == LOW) {
-            enMarcha = !enMarcha;
-            lastUpdateTime = millis();
-
-            if (enMarcha) {
-                digitalWrite(ledVerde, HIGH); 
-                digitalWrite(ledRojo, LOW);  
-            } else {
-                digitalWrite(ledVerde, LOW); 
-                digitalWrite(ledRojo, HIGH); 
-            }
-        }
-        lastDebounceTimeIniciar = millis();
+    if (!enMarcha && debounce(botonCantidadRopa, prevEstadoSeleccionarRopa, lastUpdateTime)) {
+        cantidadSeleccionada = (cantidadSeleccionada % 3) + 1;
+        configurarCantidadRopa(cantidadSeleccionada);
     }
-    prevEstadoIniciar = estadoIniciarPausar;
 
-    // Botón Seleccionar cantidad solo si está en pausa
-    if (!enMarcha) { // Solo permitir cambiar la cantidad si está en pausa
-        bool estadoSeleccionar = digitalRead(botonSeleccionar);
-        if (estadoSeleccionar != prevEstadoSeleccionar && (millis() - lastDebounceTimeSeleccionar > debounceDelay)) {
-            if (estadoSeleccionar == LOW) {
-                cantidadSeleccionada++; // Aumentar la cantidad seleccionada
-                if (cantidadSeleccionada > 3) cantidadSeleccionada = 1; // Ciclar la selección entre 1 y 3
+    if (!enMarcha && debounce(botonSeleccionarLavado, prevEstadoSeleccionarLavado, lastUpdateTime)) {
+        tipoLavadoSeleccionado = (tipoLavadoSeleccionado % 3) + 1;
+        configurarTipoLavado(tipoLavadoSeleccionado);
+    }
+}
 
-                // Apagar todos los LEDs primero
-                digitalWrite(led18kg, LOW);
-                digitalWrite(led12kg, LOW);
-                digitalWrite(led7kg, LOW);
+void configurarCantidadRopa(int cantidad) {
+    digitalWrite(led18kg, LOW);
+    digitalWrite(led12kg, LOW);
+    digitalWrite(led7kg, LOW);
 
-                // Encender el LED correspondiente según la cantidad seleccionada y establecer el tiempo
-                switch (cantidadSeleccionada) {
-                    case 1:
-                        digitalWrite(led7kg, HIGH);
-                        horas = 0;
-                        minutos = 1; // 30 minutos para 7 kg
-                        break;
-                    case 2:
-                        digitalWrite(led12kg, HIGH);
-                        horas = 0;
-                        minutos = 2; // 1 hora para 12 kg
-                        break;
-                    case 3:
-                        digitalWrite(led18kg, HIGH);
-                        horas = 0;
-                        minutos = 3; // 1 hora y 30 minutos para 18 kg
-                        break;
-                }
-            }
-            lastDebounceTimeSeleccionar = millis();
-        }
-        prevEstadoSeleccionar = estadoSeleccionar;
+    switch (cantidad) {
+        case 1: digitalWrite(led7kg, HIGH); minutos = 1; break;
+        case 2: digitalWrite(led12kg, HIGH); minutos = 2; break;
+        case 3: digitalWrite(led18kg, HIGH); minutos = 3; break;
+        default:
+            digitalWrite(led7kg, LOW);
+            digitalWrite(led12kg, LOW);
+            digitalWrite(led18kg, LOW);
+            minutos = 0;
+            segundos = 0;
+            break;
+    }
+}
+
+void configurarTipoLavado(int tipo) {
+    digitalWrite(ledLavNormal, LOW);
+    digitalWrite(ledLavRapido, LOW);
+    digitalWrite(ledLavFuerte, LOW);
+
+    switch (tipo) {
+        case 1: digitalWrite(ledLavFuerte, HIGH); minutos = 40; segundos = 0; break;
+        case 2: digitalWrite(ledLavRapido, HIGH); minutos = 0; segundos = 50; break;
+        case 3: digitalWrite(ledLavNormal, HIGH); minutos = 5; segundos = 0; break;
+        default:
+            minutos = 0;
+            segundos = 0;
+            break;
     }
 }
 
 void actualizarTemporizador() {
     if (enMarcha && millis() - lastUpdateTime >= 1000) {
         lastUpdateTime += 1000;
-        segundos--;
-        if (segundos < 0) {
+        if (--segundos < 0) {
             segundos = 59;
-            minutos--;
-            if (minutos < 0) {
+            if (--minutos < 0) {
                 minutos = 59;
-                horas--;
-                if (horas < 0) {
-                    horas = 0;
-                    minutos = 0;
-                    segundos = 0;
-                    enMarcha = false; 
+                if (--horas < 0) {
+                    horas = minutos = segundos = 0;
+                    enMarcha = false;
                     digitalWrite(ledVerde, LOW);
                     digitalWrite(ledRojo, LOW);
+                    sevseg1.blank();
+                    sevseg2.blank();
                 }
             }
         }
