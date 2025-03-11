@@ -37,7 +37,7 @@ const int ledCaliente = PB10;
 const int botonNivelAgua = PD2; 
 const int ledBajoAgua = PB13;   
 const int ledMedioAgua = PB12;  
-const int ledAltoAgua = PA11;    
+const int ledAltoAgua = PB11;    
 
 int nivelAguaSeleccionado = 0; 
 
@@ -244,6 +244,10 @@ void apagarTodo() {
     enMarcha = false;
     cantidadSeleccionada = 0;
     tipoLavadoSeleccionado = 0;
+    nivelAguaSeleccionado = 0;
+    tiempoLavadoSeleccionado = 0;
+    enjuagueSeleccionado = 0;
+    centrifugadoSeleccionado = 0;
     horas = minutos = segundos = 0;
 
     sevseg1.blank();
@@ -272,6 +276,26 @@ void manejarBotones() {
         tipoLavadoSeleccionado = (tipoLavadoSeleccionado % 4) + 1;
         configurarTipoLavado(tipoLavadoSeleccionado);
     }
+
+    if (!enMarcha && debounce(botonNivelAgua, prevEstadoNivelAgua, lastUpdateTime)) {
+        nivelAguaSeleccionado = (nivelAguaSeleccionado % 4) + 1;
+        configurarNivelAgua(nivelAguaSeleccionado);
+    }
+
+    if (!enMarcha && debounce(botonLavado, prevEstadoLavado, lastUpdateTime)) {
+        tiempoLavadoSeleccionado = (tiempoLavadoSeleccionado % 4) + 1;
+        configurarNivelLavado(tiempoLavadoSeleccionado);
+    }
+
+    if (!enMarcha && debounce(botonEnjuague, prevEstadoEnjuague, lastUpdateTime)) {
+        enjuagueSeleccionado = (enjuagueSeleccionado % 4) + 1;
+        configurarEnjuague(enjuagueSeleccionado);
+    }
+
+    if (!enMarcha && debounce(botonCentrifugado, prevEstadoCentrifugado, lastUpdateTime)) {
+        centrifugadoSeleccionado = (centrifugadoSeleccionado % 4) + 1;
+        configurarCentrifugado(centrifugadoSeleccionado);
+    }
 }
 
 void configurarTipoLavado(int tipo) {
@@ -291,7 +315,8 @@ void configurarTipoLavado(int tipo) {
 
     switch (tipo) {
         case 1: 
-            digitalWrite(ledLavFuerte, HIGH); minutos = 40; segundos = 0; 
+            minutos = 0; segundos = 0; 
+            digitalWrite(ledLavFuerte, HIGH); minutos += 40; segundos = 0; 
             digitalWrite(ledLav20, HIGH);
             digitalWrite(ledEnjuague3, HIGH);
             digitalWrite(ledCentrifugadoAlto, HIGH);
@@ -308,6 +333,10 @@ void configurarTipoLavado(int tipo) {
             digitalWrite(ledEnjuague2, HIGH);
             digitalWrite(ledCentrifugadoMedio, HIGH); 
             break;
+        case 4: 
+            minutos = 0;
+            segundos = 0;
+            break;
         default:
             minutos = 0;
             segundos = 0;
@@ -321,11 +350,13 @@ void configurarCantidadRopa(int cantidad) {
     digitalWrite(led7kg, LOW);
 
     switch (cantidadSeleccionada) {
-      case 1: digitalWrite(led7kg, HIGH); horas = 0; minutos = 1; 
+      case 1: digitalWrite(led7kg, HIGH); horas = 0; minutos += 1; 
             break;
-      case 2: digitalWrite(led12kg, HIGH); horas = 0; minutos = 2; 
+      case 2: digitalWrite(led12kg, HIGH); horas = 0; minutos += 2; 
             break;
-      case 3: digitalWrite(led18kg, HIGH); horas = 0; minutos = 3; 
+      case 3: digitalWrite(led18kg, HIGH); horas = 0; minutos += 3; 
+            break;
+      case 4: horas = 0; minutos -= 6;
             break;
       default:
             horas = 0;
@@ -333,114 +364,93 @@ void configurarCantidadRopa(int cantidad) {
             break;
   }
 }
-/*  
-// Botón Selección Nivel de Agua
-bool estadoNivelAgua = digitalRead(botonNivelAgua);
-  if(estadoNivelAgua != prevEstadoNivelAgua && (millis() - lastDebounceTimeNivelAgua > debounceDelay)) {
-    if (estadoNivelAgua == LOW) {
-      nivelAguaSeleccionado++; // Aumentar la cantidad seleccionada
-      if (nivelAguaSeleccionado > 3) nivelAguaSeleccionado = 1; // Ciclar la selección entre 1 y 3
-      // Apagar todos los LEDs primero
-          digitalWrite(ledBajoAgua, LOW);
-          digitalWrite(ledMedioAgua, LOW);
-          digitalWrite(ledAltoAgua, LOW);
-      // Encender el LED correspondiente según la selección
-          switch (nivelAguaSeleccionado) {
-            case 1: digitalWrite(ledBajoAgua, HIGH); minutos=1;
-                break;
-            case 2: digitalWrite(ledMedioAgua, HIGH); minutos=2;
-                break;
-            case 3: digitalWrite(ledAltoAgua, HIGH); minutos=3;
-                break;
-              }
-            }
-            lastDebounceTimeNivelAgua = millis();
-        }
-        prevEstadoNivelAgua = estadoNivelAgua;*/
-/*
-// Botón Selección Enjuague
-bool estadoEnjuague = digitalRead(botonEnjuague);
-  if (estadoEnjuague != prevEstadoEnjuague && (millis() - lastDebounceTimeEnjuague > debounceDelay)) {
-    if (estadoEnjuague == LOW) {
-      enjuagueSeleccionado++; // Aumentar la selección de enjuague
-      if (enjuagueSeleccionado > 3) enjuagueSeleccionado = 1; // Ciclar la selección entre 1 y 3
-    // Apagar todos los LEDs primero
-        digitalWrite(ledEnjuague1, LOW);
-        digitalWrite(ledEnjuague2, LOW);
-        digitalWrite(ledEnjuague3, LOW);
 
-        // Encender el LED correspondiente según la selección
-        switch (enjuagueSeleccionado) {
-          case 1: digitalWrite(ledEnjuague1, HIGH); segundos=30;
-              break;
-          case 2: digitalWrite(ledEnjuague2, HIGH); minutos=1;
-              break;
-          case 3: digitalWrite(ledEnjuague3, HIGH); minutos=2;
-              break;
-            }
-          }
-          lastDebounceTimeEnjuague = millis();
-      }
-      prevEstadoEnjuague = estadoEnjuague;
+void configurarNivelAgua(int cantidad) {
+    digitalWrite(ledBajoAgua, LOW);
+    digitalWrite(ledMedioAgua, LOW);
+    digitalWrite(ledAltoAgua, LOW);
 
-// Botón Selección Centrifugado
-bool estadoCentrifugado = digitalRead(botonCentrifugado);
-  if (estadoCentrifugado != prevEstadoCentrifugado && (millis() - lastDebounceTimeCentrifugado > debounceDelay)) {
-    if (estadoCentrifugado == LOW) {
-        centrifugadoSeleccionado++; // Aumentar la selección de centrifugado
-        if (centrifugadoSeleccionado > 3) centrifugadoSeleccionado = 1; // Ciclar la selección entre 1 y 3
-        // Apagar todos los LEDs primero
-        digitalWrite(ledCentrifugado1, LOW);
-        digitalWrite(ledCentrifugado2, LOW);
-        digitalWrite(ledCentrifugado3, LOW);
+    switch (cantidad) {
+      case 1: digitalWrite(ledBajoAgua, HIGH); horas = 0; minutos += 1; 
+            break;
+      case 2: digitalWrite(ledMedioAgua, HIGH); horas = 0; minutos += 2; 
+            break;
+      case 3: digitalWrite(ledAltoAgua, HIGH); horas = 0; minutos += 3; 
+            break;
+      case 4: horas = 0; minutos -= 6;
+            break;
+      default:
+            horas = 0;
+            minutos = 0;
+            break;
+  }
+}
 
-        // Encender el LED correspondiente según la selección
-        switch (centrifugadoSeleccionado) {
-          case 1: digitalWrite(ledCentrifugado1, HIGH); segundos=30;
-              break;
-          case 2: digitalWrite(ledCentrifugado2, HIGH); minutos=1;
-              break;
-          case 3: digitalWrite(ledCentrifugado3, HIGH); minutos=2;
-              break;
-            }
-        }
-        lastDebounceTimeCentrifugado = millis();
-      }
-      prevEstadoCentrifugado = estadoCentrifugado;
-        /*
-        // Botón Selección Lavado
-        bool estadoLavado = digitalRead(botonLavado);
-        if (estadoLavado != prevEstadoLavado && (millis() - lastDebounceTimeLavado > debounceDelay)) {
-            if (estadoLavado == LOW) {
-                lavadoSeleccionado++; // Aumentar la selección de lavado
-                if (lavadoSeleccionado > 3) lavadoSeleccionado = 1; // Ciclar la selección entre 1 y 3
+void configurarNivelLavado(int cantidad) {
+    digitalWrite(ledLav5, LOW);
+    digitalWrite(ledLav10, LOW);
+    digitalWrite(ledLav20, LOW);
 
-                // Apagar todos los LEDs primero
-                digitalWrite(ledLavado1, LOW);
-                digitalWrite(ledLavado2, LOW);
-                digitalWrite(ledLavado3, LOW);
+    switch (cantidad) {
+      case 1: digitalWrite(ledLav5, HIGH); horas = 0; minutos += 0; segundos += 30; 
+            break;
+      case 2: digitalWrite(ledLav10, HIGH); horas = 0; minutos += 1; segundos += 0;
+            break;
+      case 3: digitalWrite(ledLav20, HIGH); horas = 0; minutos += 2; segundos += 0;
+            break;
+      case 4: horas = 0; minutos -= 3; segundos -= 30;
+            break;
+      default:
+            horas = 0;
+            minutos = 0;
+            segundos = 0;
+            break;
+  }
+}
 
-                // Encender el LED correspondiente según la selección
-                switch (lavadoSeleccionado) {
-                    case 1:
-                        digitalWrite(ledLavado1, HIGH);
-                        segundos=30;
-                        break;
-                    case 2:
-                        digitalWrite(ledLavado2, HIGH);
-                        minutos=1;
-                        break;
-                    case 3:
-                        digitalWrite(ledLavado3, HIGH);
-                        minutos=2;
-                        break;
-                }
-            }
-            lastDebounceTimeLavado = millis();
-        }
-        prevEstadoLavado = estadoLavado;
-        */
+void configurarEnjuague(int cantidad) {
+    digitalWrite(ledEnjuague1, LOW);
+    digitalWrite(ledEnjuague2, LOW);
+    digitalWrite(ledEnjuague3, LOW);
 
+    switch (cantidad) {
+      case 1: digitalWrite(ledEnjuague1, HIGH); horas = 0; minutos += 0; segundos += 30;
+            break;
+      case 2: digitalWrite(ledEnjuague2, HIGH); horas = 0; minutos += 1; segundos += 0;
+            break;
+      case 3: digitalWrite(ledEnjuague3, HIGH); horas = 0; minutos += 2; segundos += 0;
+            break;
+      case 4: horas = 0; minutos -= 3; segundos -= 30;
+            break;
+      default:
+            horas = 0;
+            minutos = 0;
+            segundos = 0;
+            break;
+  }
+}
+
+void configurarCentrifugado(int cantidad) {
+    digitalWrite(ledCentrifugadoBajo, LOW);
+    digitalWrite(ledCentrifugadoMedio, LOW);
+    digitalWrite(ledCentrifugadoAlto, LOW);
+
+    switch (cantidad) {
+      case 1: digitalWrite(ledCentrifugadoBajo, HIGH); horas = 0; minutos += 0; segundos += 30; 
+            break;
+      case 2: digitalWrite(ledCentrifugadoMedio, HIGH); horas = 0; minutos += 1; segundos += 0;
+            break;
+      case 3: digitalWrite(ledCentrifugadoAlto, HIGH); horas = 0; minutos += 2; segundos += 0;
+            break;
+      case 4: horas = 0; minutos -= 3; segundos -= 30;
+            break;
+      default:
+            horas = 0;
+            minutos = 0;
+            segundos = 0;
+            break;
+  }
+}
 
 void actualizarTemporizador() {
     if (enMarcha && millis() - lastUpdateTime >= 1000) {
@@ -466,7 +476,7 @@ void actualizarTemporizador() {
 }
 
 void mostrarTiempo() {
-    sevseg1.setNumber(horas * 100 + minutos, 2);
+    sevseg1.setNumber(minutos * 100 + segundos, 2);
     //sevseg2.setNumber(segundos, 2);
     sevseg1.refreshDisplay();
     //sevseg2.refreshDisplay();
