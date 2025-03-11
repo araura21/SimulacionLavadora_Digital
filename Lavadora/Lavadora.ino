@@ -153,16 +153,22 @@ void manejarBotones() {
             digitalWrite(led12kg, LOW);
             digitalWrite(led7kg, LOW);
 
-            // Encender el LED correspondiente según la cantidad seleccionada
+            // Encender el LED correspondiente según la cantidad seleccionada y establecer el tiempo
             switch (cantidadSeleccionada) {
                 case 1:
                     digitalWrite(led7kg, HIGH);
+                    horas = 0;
+                    minutos = 30; // 30 minutos para 7 kg
                     break;
                 case 2:
                     digitalWrite(led12kg, HIGH);
+                    horas = 1;
+                    minutos = 0; // 1 hora para 12 kg
                     break;
                 case 3:
                     digitalWrite(led18kg, HIGH);
+                    horas = 1;
+                    minutos = 30; // 1 hora y 30 minutos para 18 kg
                     break;
             }
         }
@@ -200,5 +206,4 @@ void mostrarTiempo() {
     sevseg1.refreshDisplay();
     sevseg2.refreshDisplay();
 }
-
 
