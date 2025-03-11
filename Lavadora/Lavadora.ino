@@ -9,30 +9,29 @@ const int botonIniciarPausar = PC14;
 const int ledEncendido = PB2; 
 const int ledVerde = PB12;     
 const int ledRojo = PB13;
-const int botonSeleccionar = PB3; // Botón para seleccionar la cantidad de ropa
+const int botonSeleccionar = PB3;
 
-// LEDs para cada cantidad de ropa
+
 const int led18kg = PB8;
 const int led12kg = PB9;
 const int led7kg = PB10;
 
-int horas = 4, minutos = 4, segundos = 0;
+int horas = 0, minutos = 0, segundos = 0;
 
 bool displayEncendido = false;
 bool enMarcha = false;
 
 bool prevEstadoEncender = HIGH;
 bool prevEstadoIniciar = HIGH;
-bool prevEstadoSeleccionar = HIGH; // Variable para el botón de selección
+bool prevEstadoSeleccionar = HIGH;
 
 unsigned long lastUpdateTime = 0;
 unsigned long lastDebounceTimeEncender = 0;
 unsigned long lastDebounceTimeIniciar = 0;
-unsigned long lastDebounceTimeSeleccionar = 0; // Tiempo de debounce para el botón de selección
+unsigned long lastDebounceTimeSeleccionar = 0; 
 const unsigned long debounceDelay = 50;
 
-int cantidadSeleccionada = 0; // Variable para controlar la cantidad seleccionada
-
+int cantidadSeleccionada = 0;
 void setup() {
     byte numDigits1 = 4;
     byte digitPins1[] = {PC9, PC10, PC11, PC12};
@@ -141,40 +140,42 @@ void manejarBotones() {
     }
     prevEstadoIniciar = estadoIniciarPausar;
 
-    // Botón Seleccionar cantidad
-    bool estadoSeleccionar = digitalRead(botonSeleccionar);
-    if (estadoSeleccionar != prevEstadoSeleccionar && (millis() - lastDebounceTimeSeleccionar > debounceDelay)) {
-        if (estadoSeleccionar == LOW) {
-            cantidadSeleccionada++; // Aumentar la cantidad seleccionada
-            if (cantidadSeleccionada > 3) cantidadSeleccionada = 1; // Ciclar la selección entre 1 y 3
+    // Botón Seleccionar cantidad solo si está en pausa
+    if (!enMarcha) { // Solo permitir cambiar la cantidad si está en pausa
+        bool estadoSeleccionar = digitalRead(botonSeleccionar);
+        if (estadoSeleccionar != prevEstadoSeleccionar && (millis() - lastDebounceTimeSeleccionar > debounceDelay)) {
+            if (estadoSeleccionar == LOW) {
+                cantidadSeleccionada++; // Aumentar la cantidad seleccionada
+                if (cantidadSeleccionada > 3) cantidadSeleccionada = 1; // Ciclar la selección entre 1 y 3
 
-            // Apagar todos los LEDs primero
-            digitalWrite(led18kg, LOW);
-            digitalWrite(led12kg, LOW);
-            digitalWrite(led7kg, LOW);
+                // Apagar todos los LEDs primero
+                digitalWrite(led18kg, LOW);
+                digitalWrite(led12kg, LOW);
+                digitalWrite(led7kg, LOW);
 
-            // Encender el LED correspondiente según la cantidad seleccionada y establecer el tiempo
-            switch (cantidadSeleccionada) {
-                case 1:
-                    digitalWrite(led7kg, HIGH);
-                    horas = 0;
-                    minutos = 30; // 30 minutos para 7 kg
-                    break;
-                case 2:
-                    digitalWrite(led12kg, HIGH);
-                    horas = 1;
-                    minutos = 0; // 1 hora para 12 kg
-                    break;
-                case 3:
-                    digitalWrite(led18kg, HIGH);
-                    horas = 1;
-                    minutos = 30; // 1 hora y 30 minutos para 18 kg
-                    break;
+                // Encender el LED correspondiente según la cantidad seleccionada y establecer el tiempo
+                switch (cantidadSeleccionada) {
+                    case 1:
+                        digitalWrite(led7kg, HIGH);
+                        horas = 0;
+                        minutos = 1; // 30 minutos para 7 kg
+                        break;
+                    case 2:
+                        digitalWrite(led12kg, HIGH);
+                        horas = 0;
+                        minutos = 2; // 1 hora para 12 kg
+                        break;
+                    case 3:
+                        digitalWrite(led18kg, HIGH);
+                        horas = 0;
+                        minutos = 3; // 1 hora y 30 minutos para 18 kg
+                        break;
+                }
             }
+            lastDebounceTimeSeleccionar = millis();
         }
-        lastDebounceTimeSeleccionar = millis();
+        prevEstadoSeleccionar = estadoSeleccionar;
     }
-    prevEstadoSeleccionar = estadoSeleccionar;
 }
 
 void actualizarTemporizador() {
