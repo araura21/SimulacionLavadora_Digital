@@ -256,9 +256,16 @@ void apagarTodo() {
 
 void manejarBotones() {
     if (debounce(botonIniciarPausar, prevEstadoIniciar, lastUpdateTime)) {
-        enMarcha = !enMarcha;
-        digitalWrite(ledVerde, enMarcha ? HIGH : LOW);
-        digitalWrite(ledRojo, enMarcha ? LOW : HIGH);
+        if ((horas > 0 || minutos > 0 || segundos > 0) && cantidadSeleccionada > 0) {
+          if(tipoLavadoSeleccionado == 0){
+            tipoLavadoSeleccionado = 1;
+            configurarTipoLavado(tipoLavadoSeleccionado);
+            tipoLavadoSeleccionado = 0;
+          }
+          enMarcha = !enMarcha;
+          digitalWrite(ledVerde, enMarcha ? HIGH : LOW);
+          digitalWrite(ledRojo, enMarcha ? LOW : HIGH);
+        }
         lastUpdateTime = millis();
     }
 
@@ -353,7 +360,7 @@ void configurarTipoLavado(int tipo) {
             tiempoLavadoSeleccionado = enjuagueSeleccionado = centrifugadoSeleccionado = 2;
             contadorLavado = contadorEnjuague = contadorCentrifugado = 2;
             break;
-        case 4: 
+        case 4:
             minutos -= 10;
             segundos -= 30;
             contadorLavado = contadorEnjuague = contadorCentrifugado = 0;
@@ -539,7 +546,8 @@ void actualizarTemporizador() {
                     enMarcha = false;
                     digitalWrite(ledVerde, LOW);
                     digitalWrite(ledRojo, LOW);
-                    sevseg.setChars("End");
+                    sevseg.blank();  // Limpiar el display
+                    sevseg.setChars("End");  // Mostrar "End"
                     sevseg.refreshDisplay();
                     return;
                     //sevseg2.blank();
