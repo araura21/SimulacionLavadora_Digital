@@ -841,9 +841,9 @@ START GROUP
 LOAD c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libnosys.a
 END GROUP
                 0x20005000                PROVIDE (__msp_init, (ORIGIN (ram) + 0x5000))
-                0x080014fc                PROVIDE (__exc_reset, __start__)
+                0x0800151c                PROVIDE (__exc_reset, __start__)
 
-.text           0x08000000     0x3be8
+.text           0x08000000     0x3c08
                 0x08000000                __text_start__ = .
  *(.stm32.interrupt_vector)
  .stm32.interrupt_vector
@@ -861,545 +861,545 @@ END GROUP
                 0x080003a4       0x8c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
                 0x080003a4                apagarTodo()
  .text._Z20manejarBotonEncenderv
-                0x08000430       0x38 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000430       0x40 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
                 0x08000430                manejarBotonEncender()
  .text._Z13ajustarTiempov
-                0x08000468       0x60 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000468                ajustarTiempo()
+                0x08000470       0x60 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000470                ajustarTiempo()
  .text._Z20configurarTipoLavadoi
-                0x080004c8      0x168 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x080004c8                configurarTipoLavado(int)
+                0x080004d0      0x168 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x080004d0                configurarTipoLavado(int)
  .text._Z22configurarCantidadRopai
-                0x08000630       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000630                configurarCantidadRopa(int)
+                0x08000638       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000638                configurarCantidadRopa(int)
  .text._Z18cambiarTemperaturav
-                0x08000704       0x90 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000704                cambiarTemperatura()
+                0x0800070c       0x98 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x0800070c                cambiarTemperatura()
  .text._Z19configurarNivelAguai
-                0x08000794       0xb4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000794                configurarNivelAgua(int)
+                0x080007a4       0xb4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x080007a4                configurarNivelAgua(int)
  .text._Z21configurarNivelLavadoi
-                0x08000848       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000848                configurarNivelLavado(int)
+                0x08000858       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000858                configurarNivelLavado(int)
  .text._Z18configurarEnjuaguei
-                0x0800091c       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x0800091c                configurarEnjuague(int)
+                0x0800092c       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x0800092c                configurarEnjuague(int)
  .text._Z22configurarCentrifugadoi
-                0x080009f0       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x080009f0                configurarCentrifugado(int)
+                0x08000a00       0xd4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000a00                configurarCentrifugado(int)
  .text._Z14manejarBotonesv
-                0x08000ac4      0x208 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000ac4                manejarBotones()
+                0x08000ad4      0x218 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000ad4                manejarBotones()
  .text._Z13mostrarTiempov
-                0x08000ccc       0x34 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000ccc                mostrarTiempo()
+                0x08000cec       0x34 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000cec                mostrarTiempo()
  .text._Z22actualizarTemporizadorv
-                0x08000d00       0xa4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000d00                actualizarTemporizador()
+                0x08000d20       0xa4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000d20                actualizarTemporizador()
  .text._Z4loopv
-                0x08000da4       0x4c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
-                0x08000da4                loop()
+                0x08000dc4       0x4c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000dc4                loop()
  .text.startup._GLOBAL__sub_I_sevseg
-                0x08000df0        0xc C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x08000e10        0xc C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
  .text._ZN6SevSegC2Ev
-                0x08000dfc       0x1a C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08000dfc                SevSeg::SevSeg()
-                0x08000dfc                SevSeg::SevSeg()
+                0x08000e1c       0x1a C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08000e1c                SevSeg::SevSeg()
+                0x08000e1c                SevSeg::SevSeg()
  .text._ZN6SevSeg9segmentOnEh
-                0x08000e16       0x34 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08000e16                SevSeg::segmentOn(unsigned char)
+                0x08000e36       0x34 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08000e36                SevSeg::segmentOn(unsigned char)
  .text._ZN6SevSeg10segmentOffEh
-                0x08000e4a       0x2e C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08000e4a                SevSeg::segmentOff(unsigned char)
+                0x08000e6a       0x2e C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08000e6a                SevSeg::segmentOff(unsigned char)
  .text._ZN6SevSeg7digitOnEh
-                0x08000e78       0x30 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08000e78                SevSeg::digitOn(unsigned char)
+                0x08000e98       0x30 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08000e98                SevSeg::digitOn(unsigned char)
  .text._ZN6SevSeg8digitOffEh
-                0x08000ea8       0x2e C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08000ea8                SevSeg::digitOff(unsigned char)
- *fill*         0x08000ed6        0x2 
+                0x08000ec8       0x2e C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08000ec8                SevSeg::digitOff(unsigned char)
+ *fill*         0x08000ef6        0x2 
  .text._ZN6SevSeg14refreshDisplayEv
-                0x08000ed8      0x11c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08000ed8                SevSeg::refreshDisplay()
+                0x08000ef8      0x11c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08000ef8                SevSeg::refreshDisplay()
  .text._ZN6SevSeg13setBrightnessEs
-                0x08000ff4       0x54 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08000ff4                SevSeg::setBrightness(short)
+                0x08001014       0x54 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08001014                SevSeg::setBrightness(short)
  .text._ZN6SevSeg8setCharsEPKc
-                0x08001048       0xa4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08001048                SevSeg::setChars(char const*)
+                0x08001068       0xa4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08001068                SevSeg::setChars(char const*)
  .text._ZN6SevSeg5blankEv
-                0x080010ec       0x2c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x080010ec                SevSeg::blank()
+                0x0800110c       0x2c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x0800110c                SevSeg::blank()
  .text._ZN6SevSeg5beginEhhPKhS1_bbbb
-                0x08001118       0xdc C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08001118                SevSeg::begin(unsigned char, unsigned char, unsigned char const*, unsigned char const*, bool, bool, bool, bool)
+                0x08001138       0xdc C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08001138                SevSeg::begin(unsigned char, unsigned char, unsigned char const*, unsigned char const*, bool, bool, bool, bool)
  .text._ZN6SevSeg10findDigitsElabPh
-                0x080011f4       0xa4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x080011f4                SevSeg::findDigits(long, signed char, bool, unsigned char*)
+                0x08001214       0xa4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08001214                SevSeg::findDigits(long, signed char, bool, unsigned char*)
  .text._ZN6SevSeg13setDigitCodesEPKha
-                0x08001298       0x34 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x08001298                SevSeg::setDigitCodes(unsigned char const*, signed char)
+                0x080012b8       0x34 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x080012b8                SevSeg::setDigitCodes(unsigned char const*, signed char)
  .text._ZN6SevSeg9setNewNumElab
-                0x080012cc       0x1c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x080012cc                SevSeg::setNewNum(long, signed char, bool)
+                0x080012ec       0x1c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x080012ec                SevSeg::setNewNum(long, signed char, bool)
  .text._ZN6SevSeg9setNumberElab
-                0x080012e8        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
-                0x080012e8                SevSeg::setNumber(long, signed char, bool)
+                0x08001308        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08001308                SevSeg::setNumber(long, signed char, bool)
  .text._Z9boardInitv
-                0x080012ec       0x30 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
-                0x080012ec                boardInit()
+                0x0800130c       0x30 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
+                0x0800130c                boardInit()
  .text.startup._GLOBAL__sub_I__Z9boardInitv
-                0x0800131c       0x48 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
+                0x0800133c       0x48 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
  .text._ZL18adc_default_configP7adc_dev
-                0x08001364       0x1c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
+                0x08001384       0x1c C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
  .text._ZL20timer_default_configP9timer_dev
-                0x08001380       0x9e C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
- *fill*         0x0800141e        0x2 
+                0x080013a0       0x9e C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
+ *fill*         0x0800143e        0x2 
  .text._Z4initv
-                0x08001420       0xa8 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
-                0x08001420                init()
+                0x08001440       0xa8 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
+                0x08001440                init()
  .text._ZN6wirish4priv15board_reset_pllEv
-                0x080014c8        0x2 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
-                0x080014c8                wirish::priv::board_reset_pll()
+                0x080014e8        0x2 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
+                0x080014e8                wirish::priv::board_reset_pll()
  .text._ZN6wirish4priv28board_setup_clock_prescalersEv
-                0x080014ca       0x26 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
-                0x080014ca                wirish::priv::board_setup_clock_prescalers()
+                0x080014ea       0x26 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
+                0x080014ea                wirish::priv::board_setup_clock_prescalers()
  .text._ZN6wirish4priv16board_setup_gpioEv
-                0x080014f0        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
-                0x080014f0                wirish::priv::board_setup_gpio()
+                0x08001510        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
+                0x08001510                wirish::priv::board_setup_gpio()
  .text._ZN6wirish4priv15board_setup_usbEv
-                0x080014f4        0x2 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
-                0x080014f4                wirish::priv::board_setup_usb()
+                0x08001514        0x2 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
+                0x08001514                wirish::priv::board_setup_usb()
  .text._ZN6wirish4priv11series_initEv
-                0x080014f6        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
-                0x080014f6                wirish::priv::series_init()
- *fill*         0x080014fa        0x2 
- .text          0x080014fc       0x10 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start.S.o
-                0x080014fc                __start__
- .text.start_c  0x0800150c       0x64 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start_c.c.o
-                0x0800150c                start_c
- .text._exit    0x08001570        0x2 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\syscalls.c.o
-                0x08001570                _exit
+                0x08001516        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
+                0x08001516                wirish::priv::series_init()
+ *fill*         0x0800151a        0x2 
+ .text          0x0800151c       0x10 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start.S.o
+                0x0800151c                __start__
+ .text.start_c  0x0800152c       0x64 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start_c.c.o
+                0x0800152c                start_c
+ .text._exit    0x08001590        0x2 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\syscalls.c.o
+                0x08001590                _exit
  .text.rb_full_count
-                0x08001572       0x22 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x08001592       0x22 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
  .text._ZN14HardwareSerial4readEv
-                0x08001594       0x3a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
-                0x08001594                HardwareSerial::read()
+                0x080015b4       0x3a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x080015b4                HardwareSerial::read()
  .text._ZN14HardwareSerial9availableEv
-                0x080015ce        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
-                0x080015ce                HardwareSerial::available()
+                0x080015ee        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x080015ee                HardwareSerial::available()
  .text._ZN14HardwareSerial4peekEv
-                0x080015da       0x22 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
-                0x080015da                HardwareSerial::peek()
+                0x080015fa       0x22 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x080015fa                HardwareSerial::peek()
  .text._ZN14HardwareSerial5flushEv
-                0x080015fc       0x1a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
-                0x080015fc                HardwareSerial::flush()
+                0x0800161c       0x1a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x0800161c                HardwareSerial::flush()
  .text._ZN14HardwareSerial5writeEh
-                0x08001616       0x1e C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
-                0x08001616                HardwareSerial::write(unsigned char)
+                0x08001636       0x1e C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x08001636                HardwareSerial::write(unsigned char)
  .text._ZN14HardwareSerialC2EP9usart_devhh
-                0x08001634       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
-                0x08001634                HardwareSerial::HardwareSerial(usart_dev*, unsigned char, unsigned char)
-                0x08001634                HardwareSerial::HardwareSerial(usart_dev*, unsigned char, unsigned char)
+                0x08001654       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x08001654                HardwareSerial::HardwareSerial(usart_dev*, unsigned char, unsigned char)
+                0x08001654                HardwareSerial::HardwareSerial(usart_dev*, unsigned char, unsigned char)
  .text._ZN5Print5writeEPKvm
-                0x08001650       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(Print.cpp.o)
-                0x08001650                Print::write(void const*, unsigned long)
+                0x08001670       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(Print.cpp.o)
+                0x08001670                Print::write(void const*, unsigned long)
  .text._ZN5Print5writeEPKc
-                0x08001670       0x1e C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(Print.cpp.o)
-                0x08001670                Print::write(char const*)
+                0x08001690       0x1e C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(Print.cpp.o)
+                0x08001690                Print::write(char const*)
  .text.adc_init
-                0x0800168e       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
-                0x0800168e                adc_init
+                0x080016ae       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
+                0x080016ae                adc_init
  .text.adc_set_extsel
-                0x080016a2       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
-                0x080016a2                adc_set_extsel
+                0x080016c2       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
+                0x080016c2                adc_set_extsel
  .text.adc_set_sample_rate
-                0x080016b4       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
-                0x080016b4                adc_set_sample_rate
+                0x080016d4       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
+                0x080016d4                adc_set_sample_rate
  .text.__irq_adc
-                0x080016e4       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
-                0x080016e4                __irq_adc
+                0x08001704       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
+                0x08001704                __irq_adc
  .text.adc_calibrate
-                0x08001734       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
-                0x08001734                adc_calibrate
+                0x08001754       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
+                0x08001754                adc_calibrate
  .text.adc_set_prescaler
-                0x08001758        0x8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
-                0x08001758                adc_set_prescaler
+                0x08001778        0x8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
+                0x08001778                adc_set_prescaler
  .text.adc_foreach
-                0x08001760       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
-                0x08001760                adc_foreach
+                0x08001780       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
+                0x08001780                adc_foreach
  .text.adc_enable_single_swstart
-                0x0800177c       0x36 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
-                0x0800177c                adc_enable_single_swstart
+                0x0800179c       0x36 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
+                0x0800179c                adc_enable_single_swstart
  .text.dma_irq_handler
-                0x080017b2       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
- *fill*         0x080017ce        0x2 
+                0x080017d2       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
+ *fill*         0x080017ee        0x2 
  .text.__irq_dma1_channel1
-                0x080017d0       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
-                0x080017d0                __irq_dma1_channel1
- .text.__irq_dma1_channel2
-                0x080017e0       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
-                0x080017e0                __irq_dma1_channel2
- .text.__irq_dma1_channel3
                 0x080017f0       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
-                0x080017f0                __irq_dma1_channel3
- .text.__irq_dma1_channel4
+                0x080017f0                __irq_dma1_channel1
+ .text.__irq_dma1_channel2
                 0x08001800       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
-                0x08001800                __irq_dma1_channel4
- .text.__irq_dma1_channel5
+                0x08001800                __irq_dma1_channel2
+ .text.__irq_dma1_channel3
                 0x08001810       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
-                0x08001810                __irq_dma1_channel5
- .text.__irq_dma1_channel6
+                0x08001810                __irq_dma1_channel3
+ .text.__irq_dma1_channel4
                 0x08001820       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
-                0x08001820                __irq_dma1_channel6
- .text.__irq_dma1_channel7
+                0x08001820                __irq_dma1_channel4
+ .text.__irq_dma1_channel5
                 0x08001830       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
-                0x08001830                __irq_dma1_channel7
- .text          0x08001840       0x60 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exc.S.o)
-                0x08001840                __exc_nmi
-                0x08001844                __exc_hardfault
-                0x08001848                __exc_memmanage
-                0x0800184c                __exc_busfault
-                0x08001850                __exc_usagefault
+                0x08001830                __irq_dma1_channel5
+ .text.__irq_dma1_channel6
+                0x08001840       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
+                0x08001840                __irq_dma1_channel6
+ .text.__irq_dma1_channel7
+                0x08001850       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
+                0x08001850                __irq_dma1_channel7
+ .text          0x08001860       0x60 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exc.S.o)
+                0x08001860                __exc_nmi
+                0x08001864                __exc_hardfault
+                0x08001868                __exc_memmanage
+                0x0800186c                __exc_busfault
+                0x08001870                __exc_usagefault
  .text.dispatch_single_exti
-                0x080018a0       0x2c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x080018a0                dispatch_single_exti
+                0x080018c0       0x2c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x080018c0                dispatch_single_exti
  .text.dispatch_extis
-                0x080018cc       0x4c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x080018cc                dispatch_extis
+                0x080018ec       0x4c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x080018ec                dispatch_extis
  .text.__irq_exti0
-                0x08001918        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x08001918                __irq_exti0
+                0x08001938        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x08001938                __irq_exti0
  .text.__irq_exti1
-                0x0800191e        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x0800191e                __irq_exti1
+                0x0800193e        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x0800193e                __irq_exti1
  .text.__irq_exti2
-                0x08001924        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x08001924                __irq_exti2
+                0x08001944        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x08001944                __irq_exti2
  .text.__irq_exti3
-                0x0800192a        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x0800192a                __irq_exti3
+                0x0800194a        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x0800194a                __irq_exti3
  .text.__irq_exti4
-                0x08001930        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x08001930                __irq_exti4
+                0x08001950        0x6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x08001950                __irq_exti4
  .text.__irq_exti9_5
-                0x08001936        0x8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x08001936                __irq_exti9_5
+                0x08001956        0x8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x08001956                __irq_exti9_5
  .text.__irq_exti15_10
-                0x0800193e        0x8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
-                0x0800193e                __irq_exti15_10
- *fill*         0x08001946        0x2 
+                0x0800195e        0x8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+                0x0800195e                __irq_exti15_10
+ *fill*         0x08001966        0x2 
  .text.flash_set_latency
-                0x08001948       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(flash.c.o)
-                0x08001948                flash_set_latency
+                0x08001968       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(flash.c.o)
+                0x08001968                flash_set_latency
  .text.gpio_init_all
-                0x0800195c       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
-                0x0800195c                gpio_init_all
+                0x0800197c       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
+                0x0800197c                gpio_init_all
  .text.gpio_set_mode
-                0x0800198c       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
-                0x0800198c                gpio_set_mode
+                0x080019ac       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
+                0x080019ac                gpio_set_mode
  .text.afio_init
-                0x080019dc       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
-                0x080019dc                afio_init
- *fill*         0x080019ee        0x2 
+                0x080019fc       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
+                0x080019fc                afio_init
+ *fill*         0x08001a0e        0x2 
  .text.afio_remap
-                0x080019f0       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
-                0x080019f0                afio_remap
+                0x08001a10       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
+                0x08001a10                afio_remap
  .text.__irq_i2c1_ev
-                0x08001a10        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
-                0x08001a10                __irq_i2c1_ev
+                0x08001a30        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
+                0x08001a30                __irq_i2c1_ev
  .text.__irq_i2c2_ev
-                0x08001a1c        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
-                0x08001a1c                __irq_i2c2_ev
+                0x08001a3c        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
+                0x08001a3c                __irq_i2c2_ev
  .text.__irq_i2c1_er
-                0x08001a28        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
-                0x08001a28                __irq_i2c1_er
+                0x08001a48        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
+                0x08001a48                __irq_i2c1_er
  .text.__irq_i2c2_er
-                0x08001a34        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
-                0x08001a34                __irq_i2c2_er
+                0x08001a54        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
+                0x08001a54                __irq_i2c2_er
  .text.nvic_irq_set_priority
-                0x08001a40       0x28 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(nvic.c.o)
-                0x08001a40                nvic_irq_set_priority
+                0x08001a60       0x28 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(nvic.c.o)
+                0x08001a60                nvic_irq_set_priority
  .text.nvic_init
-                0x08001a68       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(nvic.c.o)
-                0x08001a68                nvic_init
+                0x08001a88       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(nvic.c.o)
+                0x08001a88                nvic_init
  .text.rcc_dev_clk
-                0x08001a98        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
-                0x08001a98                rcc_dev_clk
+                0x08001ab8        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
+                0x08001ab8                rcc_dev_clk
  .text.rcc_switch_sysclk
-                0x08001aa4       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
-                0x08001aa4                rcc_switch_sysclk
+                0x08001ac4       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
+                0x08001ac4                rcc_switch_sysclk
  .text.rcc_turn_on_clk
-                0x08001ac4       0x1a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
-                0x08001ac4                rcc_turn_on_clk
+                0x08001ae4       0x1a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
+                0x08001ae4                rcc_turn_on_clk
  .text.rcc_turn_off_clk
-                0x08001ade       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
-                0x08001ade                rcc_turn_off_clk
+                0x08001afe       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
+                0x08001afe                rcc_turn_off_clk
  .text.rcc_is_clk_ready
-                0x08001afa       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
-                0x08001afa                rcc_is_clk_ready
- *fill*         0x08001b12        0x2 
+                0x08001b1a       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
+                0x08001b1a                rcc_is_clk_ready
+ *fill*         0x08001b32        0x2 
  .text.rcc_configure_pll
-                0x08001b14       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
-                0x08001b14                rcc_configure_pll
+                0x08001b34       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+                0x08001b34                rcc_configure_pll
  .text.rcc_clk_enable
-                0x08001b2c       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
-                0x08001b2c                rcc_clk_enable
+                0x08001b4c       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+                0x08001b4c                rcc_clk_enable
  .text.rcc_reset_dev
-                0x08001b5c       0x34 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
-                0x08001b5c                rcc_reset_dev
+                0x08001b7c       0x34 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+                0x08001b7c                rcc_reset_dev
  .text.rcc_set_prescaler
-                0x08001b90       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
-                0x08001b90                rcc_set_prescaler
+                0x08001bb0       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+                0x08001bb0                rcc_set_prescaler
  .text.rcc_clk_disable
-                0x08001bb0       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
-                0x08001bb0                rcc_clk_disable
- .text          0x08001be0        0x2 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(isrs.S.o)
-                0x08001be0                __stm32reservedexception9
-                0x08001be0                __exc_debug_monitor
-                0x08001be0                __exc_svc
-                0x08001be0                __irq_can_rx1
-                0x08001be0                __irq_spi2
-                0x08001be0                __irq_can_sce
-                0x08001be0                __irq_pvd
-                0x08001be0                __irq_tamper
-                0x08001be0                __default_handler
-                0x08001be0                __irq_wwdg
-                0x08001be0                __stm32reservedexception10
-                0x08001be0                __irq_flash
-                0x08001be0                __stm32reservedexception13
-                0x08001be0                __irq_rtc
-                0x08001be0                __irq_spi1
-                0x08001be0                __stm32reservedexception7
-                0x08001be0                __irq_usb_hp_can_tx
-                0x08001be0                __irq_rtcalarm
-                0x08001be0                __stm32reservedexception8
-                0x08001be0                __exc_pendsv
-                0x08001be0                __irq_usbwakeup
-                0x08001be0                __irq_rcc
- *fill*         0x08001be2        0x2 
+                0x08001bd0       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+                0x08001bd0                rcc_clk_disable
+ .text          0x08001c00        0x2 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(isrs.S.o)
+                0x08001c00                __stm32reservedexception9
+                0x08001c00                __exc_debug_monitor
+                0x08001c00                __exc_svc
+                0x08001c00                __irq_can_rx1
+                0x08001c00                __irq_spi2
+                0x08001c00                __irq_can_sce
+                0x08001c00                __irq_pvd
+                0x08001c00                __irq_tamper
+                0x08001c00                __default_handler
+                0x08001c00                __irq_wwdg
+                0x08001c00                __stm32reservedexception10
+                0x08001c00                __irq_flash
+                0x08001c00                __stm32reservedexception13
+                0x08001c00                __irq_rtc
+                0x08001c00                __irq_spi1
+                0x08001c00                __stm32reservedexception7
+                0x08001c00                __irq_usb_hp_can_tx
+                0x08001c00                __irq_rtcalarm
+                0x08001c00                __stm32reservedexception8
+                0x08001c00                __exc_pendsv
+                0x08001c00                __irq_usbwakeup
+                0x08001c00                __irq_rcc
+ *fill*         0x08001c02        0x2 
  .text.systick_init
-                0x08001be4       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(systick.c.o)
-                0x08001be4                systick_init
+                0x08001c04       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(systick.c.o)
+                0x08001c04                systick_init
  .text.__exc_systick
-                0x08001bf4       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(systick.c.o)
-                0x08001bf4                __exc_systick
+                0x08001c14       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(systick.c.o)
+                0x08001c14                __exc_systick
  .text.timer_oc_set_mode
-                0x08001c10       0x3a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001c30       0x3a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
  .text.dispatch_general
-                0x08001c4a       0x66 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001c6a       0x66 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
  .text.timer_cc_enable
-                0x08001cb0       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001cd0       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
  .text.timer_foreach
-                0x08001ccc       0x28 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001ccc                timer_foreach
+                0x08001cec       0x28 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001cec                timer_foreach
  .text.timer_init
-                0x08001cf4       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001cf4                timer_init
+                0x08001d14       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001d14                timer_init
  .text.timer_has_cc_channel
-                0x08001d08       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001d08                timer_has_cc_channel
+                0x08001d28       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001d28                timer_has_cc_channel
  .text.timer_detach_interrupt
-                0x08001d38       0x1e C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001d38                timer_detach_interrupt
+                0x08001d58       0x1e C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001d58                timer_detach_interrupt
  .text.input_capture_mode
-                0x08001d56       0x1a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001d56                input_capture_mode
+                0x08001d76       0x1a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001d76                input_capture_mode
  .text.timer_set_mode
-                0x08001d70       0x8c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001d70                timer_set_mode
+                0x08001d90       0x8c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001d90                timer_set_mode
  .text.__irq_tim1_brk
-                0x08001dfc       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001dfc                __irq_tim1_brk
+                0x08001e1c       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001e1c                __irq_tim1_brk
  .text.__irq_tim1_up
-                0x08001e20       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001e20                __irq_tim1_up
+                0x08001e40       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001e40                __irq_tim1_up
  .text.__irq_tim1_trg_com
-                0x08001e44       0x34 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001e44                __irq_tim1_trg_com
+                0x08001e64       0x34 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001e64                __irq_tim1_trg_com
  .text.__irq_tim1_cc
-                0x08001e78       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001e78                __irq_tim1_cc
+                0x08001e98       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001e98                __irq_tim1_cc
  .text.__irq_tim2
-                0x08001ec8        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001ec8                __irq_tim2
+                0x08001ee8        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001ee8                __irq_tim2
  .text.__irq_tim3
-                0x08001ed4        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001ed4                __irq_tim3
+                0x08001ef4        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001ef4                __irq_tim3
  .text.__irq_tim4
-                0x08001ee0        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
-                0x08001ee0                __irq_tim4
+                0x08001f00        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+                0x08001f00                __irq_tim4
  .text.usart_tx
-                0x08001eec       0x9c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart.c.o)
-                0x08001eec                usart_tx
+                0x08001f0c       0x9c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart.c.o)
+                0x08001f0c                usart_tx
  .text.usart_irq
-                0x08001f88       0xc8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
+                0x08001fa8       0xc8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
  .text.__irq_usart1
-                0x08002050       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
-                0x08002050                __irq_usart1
+                0x08002070       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
+                0x08002070                __irq_usart1
  .text.__irq_usart2
-                0x08002068       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
-                0x08002068                __irq_usart2
+                0x08002088       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
+                0x08002088                __irq_usart2
  .text.__irq_usart3
-                0x08002080       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
-                0x08002080                __irq_usart3
+                0x080020a0       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
+                0x080020a0                __irq_usart3
  .text.usb_resume
-                0x08002098       0xb4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb.c.o)
+                0x080020b8       0xb4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb.c.o)
  .text.__irq_usb_lp_can_rx0
-                0x0800214c      0x1c8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb.c.o)
-                0x0800214c                __irq_usb_lp_can_rx0
+                0x0800216c      0x1c8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb.c.o)
+                0x0800216c                __irq_usb_lp_can_rx0
  .text.usb_set_ep_rx_stat
-                0x08002314       0x22 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
- *fill*         0x08002336        0x2 
+                0x08002334       0x22 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+ *fill*         0x08002356        0x2 
  .text.vcomGetSetLineCoding
-                0x08002338       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08002358       0x18 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usbDataSetup
-                0x08002350       0x54 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08002370       0x54 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usbNoDataSetup
-                0x080023a4       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x080023c4       0x50 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usbGetInterfaceSetting
-                0x080023f4       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08002414       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usbGetStringDescriptor
-                0x08002404       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08002424       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usbGetConfigDescriptor
-                0x08002424        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08002444        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usbGetDeviceDescriptor
-                0x08002430        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
- .text.usbInit  0x0800243c       0x44 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08002450        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+ .text.usbInit  0x0800245c       0x44 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usbReset
-                0x08002480      0x160 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x080024a0      0x160 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .text.usb_set_ep_rx_count
-                0x080025e0       0x4c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_reg_map.c.o)
-                0x080025e0                usb_set_ep_rx_count
+                0x08002600       0x4c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_reg_map.c.o)
+                0x08002600                usb_set_ep_rx_count
  .text.Standard_GetConfiguration
-                0x0800262c       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x0800262c                Standard_GetConfiguration
+                0x0800264c       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x0800264c                Standard_GetConfiguration
  .text.Standard_GetInterface
-                0x08002650       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002650                Standard_GetInterface
+                0x08002670       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002670                Standard_GetInterface
  .text.Standard_GetStatus
-                0x08002674       0x90 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002674                Standard_GetStatus
+                0x08002694       0x90 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002694                Standard_GetStatus
  .text.DataStageIn
-                0x08002704       0xa8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002724       0xa8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
  .text.Standard_SetConfiguration
-                0x080027ac       0x38 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x080027ac                Standard_SetConfiguration
+                0x080027cc       0x38 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x080027cc                Standard_SetConfiguration
  .text.Standard_SetInterface
-                0x080027e4       0x48 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x080027e4                Standard_SetInterface
+                0x08002804       0x48 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002804                Standard_SetInterface
  .text.Standard_ClearFeature
-                0x0800282c       0xd0 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x0800282c                Standard_ClearFeature
+                0x0800284c       0xd0 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x0800284c                Standard_ClearFeature
  .text.Standard_SetEndPointFeature
-                0x080028fc       0x84 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x080028fc                Standard_SetEndPointFeature
+                0x0800291c       0x84 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x0800291c                Standard_SetEndPointFeature
  .text.Standard_SetDeviceFeature
-                0x08002980       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002980                Standard_SetDeviceFeature
+                0x080029a0       0x24 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x080029a0                Standard_SetDeviceFeature
  .text.Standard_GetDescriptorData
-                0x080029a4       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x080029a4                Standard_GetDescriptorData
+                0x080029c4       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x080029c4                Standard_GetDescriptorData
  .text.Post0_Process
-                0x080029c0       0x40 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x080029c0                Post0_Process
+                0x080029e0       0x40 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x080029e0                Post0_Process
  .text.Setup0_Process
-                0x08002a00      0x2d0 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002a00                Setup0_Process
+                0x08002a20      0x2d0 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002a20                Setup0_Process
  .text.Out0_Process
-                0x08002cd0       0xc8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002cd0                Out0_Process
+                0x08002cf0       0xc8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002cf0                Out0_Process
  .text.SetDeviceAddress
-                0x08002d98       0x38 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002d98                SetDeviceAddress
+                0x08002db8       0x38 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002db8                SetDeviceAddress
  .text.In0_Process
-                0x08002dd0       0x5c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002dd0                In0_Process
+                0x08002df0       0x5c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002df0                In0_Process
  .text.NOP_Process
-                0x08002e2c        0x2 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
-                0x08002e2c                NOP_Process
+                0x08002e4c        0x2 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+                0x08002e4c                NOP_Process
  .text.UserToPMABufferCopy
-                0x08002e2e       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_mem.c.o)
-                0x08002e2e                UserToPMABufferCopy
+                0x08002e4e       0x30 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_mem.c.o)
+                0x08002e4e                UserToPMABufferCopy
  .text.PMAToUserBufferCopy
-                0x08002e5e       0x32 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_mem.c.o)
-                0x08002e5e                PMAToUserBufferCopy
+                0x08002e7e       0x32 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_mem.c.o)
+                0x08002e7e                PMAToUserBufferCopy
  .text.SetEPTxStatus
-                0x08002e90       0x2a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
-                0x08002e90                SetEPTxStatus
+                0x08002eb0       0x2a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
+                0x08002eb0                SetEPTxStatus
  .text.ClearDTOG_RX
-                0x08002eba       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
-                0x08002eba                ClearDTOG_RX
- .text.ClearDTOG_TX
                 0x08002eda       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
-                0x08002eda                ClearDTOG_TX
- *fill*         0x08002efa        0x2 
+                0x08002eda                ClearDTOG_RX
+ .text.ClearDTOG_TX
+                0x08002efa       0x20 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
+                0x08002efa                ClearDTOG_TX
+ *fill*         0x08002f1a        0x2 
  .text.GetEPTxAddr
-                0x08002efc       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
-                0x08002efc                GetEPTxAddr
+                0x08002f1c       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
+                0x08002f1c                GetEPTxAddr
  .text.GetEPRxAddr
-                0x08002f18       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
-                0x08002f18                GetEPRxAddr
+                0x08002f38       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
+                0x08002f38                GetEPRxAddr
  .text.SetEPTxCount
-                0x08002f34       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
-                0x08002f34                SetEPTxCount
+                0x08002f54       0x1c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
+                0x08002f54                SetEPTxCount
  .text.SetEPRxCount
-                0x08002f50       0x40 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
-                0x08002f50                SetEPRxCount
- .text.throb    0x08002f90       0x4c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(util.c.o)
-                0x08002f90                throb
- .text.__error  0x08002fdc       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(util.c.o)
-                0x08002fdc                __error
+                0x08002f70       0x40 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
+                0x08002f70                SetEPRxCount
+ .text.throb    0x08002fb0       0x4c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(util.c.o)
+                0x08002fb0                throb
+ .text.__error  0x08002ffc       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(util.c.o)
+                0x08002ffc                __error
  .text.startup._Z7premainv
-                0x08002ff0        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
-                0x08002ff0                premain()
+                0x08003010        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
+                0x08003010                premain()
  .text.startup.main
-                0x08002ff4        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
-                0x08002ff4                main
+                0x08003014        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
+                0x08003014                main
  .text._Z7pinModeh13WiringPinMode
-                0x08003000       0x84 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital_f1.cpp.o)
-                0x08003000                pinMode(unsigned char, WiringPinMode)
+                0x08003020       0x84 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital_f1.cpp.o)
+                0x08003020                pinMode(unsigned char, WiringPinMode)
  .text._Z11digitalReadh
-                0x08003084       0x2c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital.cpp.o)
-                0x08003084                digitalRead(unsigned char)
+                0x080030a4       0x2c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital.cpp.o)
+                0x080030a4                digitalRead(unsigned char)
  .text._Z12digitalWritehh
-                0x080030b0       0x2c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital.cpp.o)
-                0x080030b0                digitalWrite(unsigned char, unsigned char)
+                0x080030d0       0x2c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital.cpp.o)
+                0x080030d0                digitalWrite(unsigned char, unsigned char)
  .text.delayMicroseconds
-                0x080030dc       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_time.cpp.o)
-                0x080030dc                delayMicroseconds
+                0x080030fc       0x10 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_time.cpp.o)
+                0x080030fc                delayMicroseconds
  .text.gpio_init
-                0x080030ec       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio.c.o)
-                0x080030ec                gpio_init
+                0x0800310c       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio.c.o)
+                0x0800310c                gpio_init
  .text.i2c_disable_irq
-                0x08003100        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
+                0x08003120        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
  .text._i2c_irq_handler
-                0x0800310c      0x3d8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
-                0x0800310c                _i2c_irq_handler
+                0x0800312c      0x3d8 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
+                0x0800312c                _i2c_irq_handler
  .text._i2c_irq_error_handler
-                0x080034e4       0x74 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
-                0x080034e4                _i2c_irq_error_handler
- .text          0x08003558       0x38 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_aeabi_ldivmod.o)
-                0x08003558                __aeabi_ldivmod
- .text          0x08003590       0x60 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(bpabi.o)
-                0x08003590                __gnu_ldivmod_helper
-                0x080035c0                __gnu_uldivmod_helper
- .text          0x080035f0        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_dvmd_tls.o)
-                0x080035f0                __aeabi_idiv0
-                0x080035f0                __aeabi_ldiv0
- .text          0x080035f4      0x2a0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_divdi3.o)
-                0x080035f4                __divdi3
- .text          0x08003894      0x290 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_udivdi3.o)
-                0x08003894                __udivdi3
- .text.exit     0x08003b24       0x28 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-exit.o)
-                0x08003b24                exit
+                0x08003504       0x74 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
+                0x08003504                _i2c_irq_error_handler
+ .text          0x08003578       0x38 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+                0x08003578                __aeabi_ldivmod
+ .text          0x080035b0       0x60 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(bpabi.o)
+                0x080035b0                __gnu_ldivmod_helper
+                0x080035e0                __gnu_uldivmod_helper
+ .text          0x08003610        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_dvmd_tls.o)
+                0x08003610                __aeabi_idiv0
+                0x08003610                __aeabi_ldiv0
+ .text          0x08003614      0x2a0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_divdi3.o)
+                0x08003614                __divdi3
+ .text          0x080038b4      0x290 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_udivdi3.o)
+                0x080038b4                __udivdi3
+ .text.exit     0x08003b44       0x28 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-exit.o)
+                0x08003b44                exit
  .text.__libc_init_array
-                0x08003b4c       0x4c c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-init.o)
-                0x08003b4c                __libc_init_array
- .text.memcpy   0x08003b98       0x12 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-memcpy-stub.o)
-                0x08003b98                memcpy
- .text.strlen   0x08003baa       0x10 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-strlen.o)
-                0x08003baa                strlen
+                0x08003b6c       0x4c c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-init.o)
+                0x08003b6c                __libc_init_array
+ .text.memcpy   0x08003bb8       0x12 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-memcpy-stub.o)
+                0x08003bb8                memcpy
+ .text.strlen   0x08003bca       0x10 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-strlen.o)
+                0x08003bca                strlen
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
@@ -1412,69 +1412,69 @@ END GROUP
  *(.gcc_except_table)
  *(.eh_frame_hdr)
  *(.eh_frame)
- *fill*         0x08003bba        0x2 
- .eh_frame      0x08003bbc        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
-                0x08003bbc                . = ALIGN (0x4)
+ *fill*         0x08003bda        0x2 
+ .eh_frame      0x08003bdc        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
+                0x08003bdc                . = ALIGN (0x4)
  *(.init)
- .init          0x08003bbc        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crti.o
-                0x08003bbc                _init
- .init          0x08003bc0        0x8 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtn.o
-                0x08003bc8                . = ALIGN (0x4)
-                0x08003bc8                __preinit_array_start = .
+ .init          0x08003bdc        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crti.o
+                0x08003bdc                _init
+ .init          0x08003be0        0x8 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtn.o
+                0x08003be8                . = ALIGN (0x4)
+                0x08003be8                __preinit_array_start = .
  *(.preinit_array)
-                0x08003bc8                __preinit_array_end = .
-                0x08003bc8                . = ALIGN (0x4)
-                0x08003bc8                __init_array_start = .
+                0x08003be8                __preinit_array_end = .
+                0x08003be8                . = ALIGN (0x4)
+                0x08003be8                __init_array_start = .
  *(SORT(.init_array.*))
  .init_array.00101
-                0x08003bc8        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
+                0x08003be8        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
  *(.init_array)
- .init_array    0x08003bcc        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
- .init_array    0x08003bd0        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
- .init_array    0x08003bd4        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
-                0x08003bd8                __init_array_end = .
-                0x08003bd8                . = ALIGN (0x4)
+ .init_array    0x08003bec        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
+ .init_array    0x08003bf0        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+ .init_array    0x08003bf4        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
+                0x08003bf8                __init_array_end = .
+                0x08003bf8                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x08003bd8                . = ALIGN (0x4)
+                0x08003bf8                . = ALIGN (0x4)
  *(.fini)
- .fini          0x08003bd8        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crti.o
-                0x08003bd8                _fini
- .fini          0x08003bdc        0x8 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtn.o
-                0x08003be4                . = ALIGN (0x4)
-                0x08003be4                __fini_array_start = .
+ .fini          0x08003bf8        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crti.o
+                0x08003bf8                _fini
+ .fini          0x08003bfc        0x8 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtn.o
+                0x08003c04                . = ALIGN (0x4)
+                0x08003c04                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x08003be4        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
+ .fini_array    0x08003c04        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x08003be8                __fini_array_end = .
+                0x08003c08                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
 
-.v4_bx          0x08003be8        0x0
+.v4_bx          0x08003c08        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08003be8        0x0
+.iplt           0x08003c08        0x0
  .iplt          0x00000000        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
 
-.text.align     0x08003be8        0x0
-                0x08003be8                . = ALIGN (0x8)
-                0x08003be8                __text_end__ = .
-                0x08003be8                __exidx_start = .
+.text.align     0x08003c08        0x0
+                0x08003c08                . = ALIGN (0x8)
+                0x08003c08                __text_end__ = .
+                0x08003c08                __exidx_start = .
 
-.ARM.exidx      0x08003be8        0x8
+.ARM.exidx      0x08003c08        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x08003be8        0x8 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start.S.o
- .ARM.exidx     0x08003bf0        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_divdi3.o)
+ .ARM.exidx     0x08003c08        0x8 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start.S.o
+ .ARM.exidx     0x08003c10        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_divdi3.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x08003bf0        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x08003c10        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_udivdi3.o)
                                   0x8 (size before relaxing)
-                0x08003bf0                __exidx_end = .
+                0x08003c10                __exidx_end = .
 
-.data           0x20000000      0x478 load address 0x08003bf0
+.data           0x20000000      0x478 load address 0x08003c10
                 0x20000000                __data_start__ = .
                 0x20000000        0x4 LONG 0x0
                 0x20000008                . = ALIGN (0x8)
@@ -1591,61 +1591,61 @@ END GROUP
  *fill*         0x20000474        0x4 
                 0x20000478                __data_end__ = .
 
-.jcr            0x20000478        0x0 load address 0x08004068
+.jcr            0x20000478        0x0 load address 0x08004088
  .jcr           0x20000478        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
 
-.igot.plt       0x20000478        0x0 load address 0x08004068
+.igot.plt       0x20000478        0x0 load address 0x08004088
  .igot.plt      0x00000000        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
 
-.rodata         0x08004068      0x4e0
+.rodata         0x08004088      0x4e0
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x08004068       0x68 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+ .rodata        0x08004088       0x68 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
  .rodata.str1.1
-                0x080040d0        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+                0x080040f0        0x4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
  .rodata._ZL12digitCodeMap
-                0x080040d4       0x29 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
- *fill*         0x080040fd        0x3 
+                0x080040f4       0x29 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+ *fill*         0x0800411d        0x3 
  .rodata._ZL10powersOf10
-                0x08004100       0x28 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08004120       0x28 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
  .rodata._ZL10powersOf16
-                0x08004128       0x20 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+                0x08004148       0x20 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
  .rodata.PIN_MAP
-                0x08004148      0x2e0 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
-                0x08004148                PIN_MAP
+                0x08004168      0x2e0 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
+                0x08004168                PIN_MAP
  .rodata._ZTV14HardwareSerial
-                0x08004428       0x28 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
-                0x08004428                vtable for HardwareSerial
- .rodata.GPIOB  0x08004450        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
-                0x08004450                GPIOB
+                0x08004448       0x28 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+                0x08004448                vtable for HardwareSerial
+ .rodata.GPIOB  0x08004470        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
+                0x08004470                GPIOB
  .rodata.rcc_dev_table
-                0x08004454       0x5c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
-                0x08004454                rcc_dev_table
+                0x08004474       0x5c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+                0x08004474                rcc_dev_table
  .rodata.masks.4420
-                0x080044b0       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+                0x080044d0       0x14 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
  .rodata.usbVcomDescriptor_iProduct
-                0x080044c4        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x080044e4        0xc C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .rodata.usbVcomDescriptor_iManufacturer
-                0x080044d0       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x080044f0       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .rodata.usbVcomDescriptor_Device
-                0x080044e2       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08004502       0x12 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .rodata.usbVcomDescriptor_Config
-                0x080044f4       0x43 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08004514       0x43 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .rodata.usbVcomDescriptor_LangID
-                0x08004537        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+                0x08004557        0x4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
  .rodata.str1.1
-                0x0800453b        0x2 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-impure.o)
- *fill*         0x0800453d        0x3 
+                0x0800455b        0x2 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-impure.o)
+ *fill*         0x0800455d        0x3 
  .rodata._global_impure_ptr
-                0x08004540        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-impure.o)
-                0x08004540                _global_impure_ptr
+                0x08004560        0x4 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc_s.a(lib_a-impure.o)
+                0x08004560                _global_impure_ptr
  *(.USER_FLASH)
-                0x08004544                . = ALIGN (0x4)
-                0x08004544                _lm_rom_img_cfgp = .
-                0x08004544        0x4 LONG 0x8003bf0 LOADADDR (.data)
+                0x08004564                . = ALIGN (0x4)
+                0x08004564                _lm_rom_img_cfgp = .
+                0x08004564        0x4 LONG 0x8003c10 LOADADDR (.data)
                 0x20000688                _lm_heap_start = DEFINED (_lm_heap_start)?_lm_heap_start:_end
                 0x20005000                _lm_heap_end = DEFINED (_lm_heap_end)?_lm_heap_end:__msp_init
 
-.rel.dyn        0x08004548        0x0
+.rel.dyn        0x08004568        0x0
  .rel.iplt      0x00000000        0x0 c:/users/user/appdata/local/arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/crtbegin.o
 
 .bss            0x20000478      0x210
@@ -1981,53 +1981,53 @@ END GROUP
  .debug_abbrev  0x00005b9c      0x113 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio.c.o)
  .debug_abbrev  0x00005caf      0x42d C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
 
-.debug_line     0x00000000     0xa9cd
+.debug_line     0x00000000     0xa9d1
  *(.debug_line)
- .debug_line    0x00000000      0x6d0 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
- .debug_line    0x000006d0      0x689 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
- .debug_line    0x00000d59      0x462 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
- .debug_line    0x000011bb      0x4c1 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
- .debug_line    0x0000167c      0x3b4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
- .debug_line    0x00001a30       0xaf C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start.S.o
- .debug_line    0x00001adf       0xc0 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start_c.c.o
- .debug_line    0x00001b9f      0x303 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\syscalls.c.o
- .debug_line    0x00001ea2      0x557 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
- .debug_line    0x000023f9      0x5c5 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(Print.cpp.o)
- .debug_line    0x000029be      0x269 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(cxxabi-compat.cpp.o)
- .debug_line    0x00002c27      0x340 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
- .debug_line    0x00002f67      0x3ec C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
- .debug_line    0x00003353      0x671 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
- .debug_line    0x000039c4       0xb7 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exc.S.o)
- .debug_line    0x00003a7b      0x419 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
- .debug_line    0x00003e94      0x342 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti_f1.c.o)
- .debug_line    0x000041d6      0x2c2 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(flash.c.o)
- .debug_line    0x00004498      0x36b C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
- .debug_line    0x00004803      0x44f C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
- .debug_line    0x00004c52      0x32a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(nvic.c.o)
- .debug_line    0x00004f7c      0x3c3 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
- .debug_line    0x0000533f      0x410 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
- .debug_line    0x0000574f       0xb4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(isrs.S.o)
- .debug_line    0x00005803      0x294 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(systick.c.o)
- .debug_line    0x00005a97      0x623 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
- .debug_line    0x000060ba      0x458 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart.c.o)
- .debug_line    0x00006512      0x460 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
- .debug_line    0x00006972      0x2fe C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_private.c.o)
- .debug_line    0x00006c70      0x536 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb.c.o)
- .debug_line    0x000071a6      0x940 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
- .debug_line    0x00007ae6      0x2f5 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_reg_map.c.o)
- .debug_line    0x00007ddb      0x431 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
- .debug_line    0x0000820c      0x146 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_init.c.o)
- .debug_line    0x00008352      0x180 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_mem.c.o)
- .debug_line    0x000084d2      0x5aa C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
- .debug_line    0x00008a7c      0x3c6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(util.c.o)
- .debug_line    0x00008e42       0xaf C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
- .debug_line    0x00008ef1      0x3f0 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital_f1.cpp.o)
- .debug_line    0x000092e1      0x374 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital.cpp.o)
- .debug_line    0x00009655      0x35b C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_time.cpp.o)
- .debug_line    0x000099b0       0x98 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(hooks.c.o)
- .debug_line    0x00009a48      0x38c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma.c.o)
- .debug_line    0x00009dd4      0x2e7 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio.c.o)
- .debug_line    0x0000a0bb      0x912 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
+ .debug_line    0x00000000      0x6d4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\Lavadora.ino.cpp.o
+ .debug_line    0x000006d4      0x689 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\sketch\SevSeg.cpp.o
+ .debug_line    0x00000d5d      0x462 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\board.cpp.o
+ .debug_line    0x000011bf      0x4c1 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards.cpp.o
+ .debug_line    0x00001680      0x3b4 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\boards_setup.cpp.o
+ .debug_line    0x00001a34       0xaf C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start.S.o
+ .debug_line    0x00001ae3       0xc0 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\start_c.c.o
+ .debug_line    0x00001ba3      0x303 C:\Users\User\AppData\Local\arduino\sketches\31F41C61DEF40291C74E14A65EDBA948\core\wirish\syscalls.c.o
+ .debug_line    0x00001ea6      0x557 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(HardwareSerial.cpp.o)
+ .debug_line    0x000023fd      0x5c5 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(Print.cpp.o)
+ .debug_line    0x000029c2      0x269 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(cxxabi-compat.cpp.o)
+ .debug_line    0x00002c2b      0x340 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc.c.o)
+ .debug_line    0x00002f6b      0x3ec C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(adc_f1.c.o)
+ .debug_line    0x00003357      0x671 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma_f1.c.o)
+ .debug_line    0x000039c8       0xb7 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exc.S.o)
+ .debug_line    0x00003a7f      0x419 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti.c.o)
+ .debug_line    0x00003e98      0x342 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(exti_f1.c.o)
+ .debug_line    0x000041da      0x2c2 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(flash.c.o)
+ .debug_line    0x0000449c      0x36b C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio_f1.c.o)
+ .debug_line    0x00004807      0x44f C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c_f1.c.o)
+ .debug_line    0x00004c56      0x32a C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(nvic.c.o)
+ .debug_line    0x00004f80      0x3c3 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc.c.o)
+ .debug_line    0x00005343      0x410 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(rcc_f1.c.o)
+ .debug_line    0x00005753       0xb4 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(isrs.S.o)
+ .debug_line    0x00005807      0x294 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(systick.c.o)
+ .debug_line    0x00005a9b      0x623 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(timer.c.o)
+ .debug_line    0x000060be      0x458 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart.c.o)
+ .debug_line    0x00006516      0x460 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_f1.c.o)
+ .debug_line    0x00006976      0x2fe C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usart_private.c.o)
+ .debug_line    0x00006c74      0x536 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb.c.o)
+ .debug_line    0x000071aa      0x940 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_cdcacm.c.o)
+ .debug_line    0x00007aea      0x2f5 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_reg_map.c.o)
+ .debug_line    0x00007ddf      0x431 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_core.c.o)
+ .debug_line    0x00008210      0x146 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_init.c.o)
+ .debug_line    0x00008356      0x180 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_mem.c.o)
+ .debug_line    0x000084d6      0x5aa C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(usb_regs.c.o)
+ .debug_line    0x00008a80      0x3c6 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(util.c.o)
+ .debug_line    0x00008e46       0xaf C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(main.cpp.o)
+ .debug_line    0x00008ef5      0x3f0 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital_f1.cpp.o)
+ .debug_line    0x000092e5      0x374 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_digital.cpp.o)
+ .debug_line    0x00009659      0x35b C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(wirish_time.cpp.o)
+ .debug_line    0x000099b4       0x98 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(hooks.c.o)
+ .debug_line    0x00009a4c      0x38c C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(dma.c.o)
+ .debug_line    0x00009dd8      0x2e7 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(gpio.c.o)
+ .debug_line    0x0000a0bf      0x912 C:\Users\User\AppData\Local\arduino\cores\ea6e7247c5a1a670ec59b54f227b2b8c\core.a(i2c.c.o)
 
 .debug_frame    0x00000000     0x23e4
  *(.debug_frame)

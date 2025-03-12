@@ -236,10 +236,12 @@ void manejarBotonEncender() {
         digitalWrite(ledEncendido, sistemaEncendido ? HIGH : LOW);
 
         if (!sistemaEncendido) {
+            temperaturaBloqueada = false; 
             apagarTodo();
         }
     }
 }
+
 
 void apagarTodo() {
     enMarcha = false;
@@ -264,6 +266,11 @@ void apagarTodo() {
 
 void manejarBotones() {
     if (debounce(botonIniciarPausar, prevEstadoIniciar, lastUpdateTime)) {
+        
+        if (temperaturaSeleccionada == 0) {  
+            return;  // Sale de la función y no inicia el lavado
+        }
+
         if ((horas > 0 || minutos > 0 || segundos > 0) && cantidadSeleccionada > 0) {
             if (tipoLavadoSeleccionado == 0) {
                 tipoLavadoSeleccionado = 1;
@@ -280,7 +287,8 @@ void manejarBotones() {
         lastUpdateTime = millis();
     }
 
-    if (!enMarcha && !temperaturaBloqueada && debounce(botonTemperatura, prevEstadoTemperatura, lastUpdateTime)) {
+    
+    if (!temperaturaBloqueada && debounce(botonTemperatura, prevEstadoTemperatura, lastUpdateTime)) {
         cambiarTemperatura();  
     }
 
@@ -316,7 +324,6 @@ void manejarBotones() {
 
     ajustarTiempo();
 }
-
 
 void ajustarTiempo(){
   // Ajustar segundos a minutos
@@ -436,9 +443,9 @@ void configurarCantidadRopa(int cantidad) {
 }
 
 void cambiarTemperatura() {
-    if (temperaturaBloqueada) return;  
+    if (temperaturaBloqueada) return; 
 
-    static int estadoTemperatura = 0; 
+    static int estadoTemperatura = 0;  
 
     // Apagar ambos LEDs antes de cambiar estado
     digitalWrite(ledFrio, LOW);
@@ -448,25 +455,32 @@ void cambiarTemperatura() {
         case 0:
             digitalWrite(ledFrio, HIGH);
             segundos += 30;
+            temperaturaSeleccionada = 1;  
             ajustarTiempo();
             break;
         case 1:
             segundos -= 30;
+            temperaturaSeleccionada = 1;  
             ajustarTiempo();
             break;
         case 2:
             digitalWrite(ledCaliente, HIGH);
             minutos += 2;
+            temperaturaSeleccionada = 1;  
             ajustarTiempo();
             break;
         case 3:
             minutos -= 2;
+            temperaturaSeleccionada = 1;  
             ajustarTiempo();
             break;
     }
 
+    // Alternar estado (de 0 → 1 → 2 → 3 → 0)
     estadoTemperatura = (estadoTemperatura + 1) % 4;
 }
+
+
 
 
 
