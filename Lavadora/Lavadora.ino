@@ -359,15 +359,7 @@ void configurarTipoLavado(int tipo) {
     digitalWrite(ledCentrifugadoAlto, LOW); 
 
     switch (tipo) {
-        case 1:  
-            digitalWrite(ledLavFuerte, HIGH); minutos += 33; segundos += 0; 
-            digitalWrite(ledLav20, HIGH);
-            digitalWrite(ledEnjuague3, HIGH);
-            digitalWrite(ledCentrifugadoAlto, HIGH);
-            tiempoLavadoSeleccionado = enjuagueSeleccionado = centrifugadoSeleccionado = 3;
-            contadorLavado = contadorEnjuague = contadorCentrifugado = 1;
-            break;
-        case 2: 
+        case 1: 
             digitalWrite(ledLavRapido, HIGH); minutos += 8; segundos += 0;
             digitalWrite(ledLav5, HIGH);
             digitalWrite(ledEnjuague1, HIGH);
@@ -375,13 +367,21 @@ void configurarTipoLavado(int tipo) {
             tiempoLavadoSeleccionado = enjuagueSeleccionado = centrifugadoSeleccionado = 1;
             contadorLavado = contadorEnjuague = contadorCentrifugado = 3;
             break;
-        case 3: 
+        case 2: 
             digitalWrite(ledLavNormal, HIGH); minutos += 17; segundos += 0;
             digitalWrite(ledLav10, HIGH);
             digitalWrite(ledEnjuague2, HIGH);
             digitalWrite(ledCentrifugadoMedio, HIGH); 
             tiempoLavadoSeleccionado = enjuagueSeleccionado = centrifugadoSeleccionado = 2;
             contadorLavado = contadorEnjuague = contadorCentrifugado = 2;
+            break;
+        case 3:
+            digitalWrite(ledLavFuerte, HIGH); minutos += 33; segundos += 0; 
+            digitalWrite(ledLav20, HIGH);
+            digitalWrite(ledEnjuague3, HIGH);
+            digitalWrite(ledCentrifugadoAlto, HIGH);
+            tiempoLavadoSeleccionado = enjuagueSeleccionado = centrifugadoSeleccionado = 3;
+            contadorLavado = contadorEnjuague = contadorCentrifugado = 1;
             break;
         case 4:
             minutos -= 58;
