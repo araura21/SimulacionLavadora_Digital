@@ -31,6 +31,8 @@ int cantidadSeleccionada = 0;
 const int botonTemperatura = PB15;
 const int ledFrio = PB9;
 const int ledCaliente = PB10;
+bool temperaturaBloqueada = false;  
+
 
 int temperaturaSeleccionada = 0;
 
@@ -263,15 +265,23 @@ void apagarTodo() {
 void manejarBotones() {
     if (debounce(botonIniciarPausar, prevEstadoIniciar, lastUpdateTime)) {
         if ((horas > 0 || minutos > 0 || segundos > 0) && cantidadSeleccionada > 0) {
-          if(tipoLavadoSeleccionado == 0){
-            tipoLavadoSeleccionado = 1;
-            configurarTipoLavado(tipoLavadoSeleccionado);
-          }
-          enMarcha = !enMarcha;
-          digitalWrite(ledVerde, enMarcha ? HIGH : LOW);
-          digitalWrite(ledRojo, enMarcha ? LOW : HIGH);
+            if (tipoLavadoSeleccionado == 0) {
+                tipoLavadoSeleccionado = 1;
+                configurarTipoLavado(tipoLavadoSeleccionado);
+            }
+            enMarcha = !enMarcha;
+            digitalWrite(ledVerde, enMarcha ? HIGH : LOW);
+            digitalWrite(ledRojo, enMarcha ? LOW : HIGH);
+
+            if (enMarcha) {
+                temperaturaBloqueada = true;  
+            }
         }
         lastUpdateTime = millis();
+    }
+
+    if (!enMarcha && !temperaturaBloqueada && debounce(botonTemperatura, prevEstadoTemperatura, lastUpdateTime)) {
+        cambiarTemperatura();  
     }
 
     if (!enMarcha && debounce(botonCantidadRopa, prevEstadoRopa, lastUpdateTime)) {
@@ -303,8 +313,10 @@ void manejarBotones() {
         centrifugadoSeleccionado = (centrifugadoSeleccionado % 4) + 1;
         configurarCentrifugado(centrifugadoSeleccionado);
     }
+
     ajustarTiempo();
 }
+
 
 void ajustarTiempo(){
   // Ajustar segundos a minutos
@@ -423,9 +435,10 @@ void configurarCantidadRopa(int cantidad) {
     }
 }
 
-
 void cambiarTemperatura() {
-    static int estadoTemperatura = 0;  // Controla el ciclo de cambios
+    if (temperaturaBloqueada) return;  
+
+    static int estadoTemperatura = 0; 
 
     // Apagar ambos LEDs antes de cambiar estado
     digitalWrite(ledFrio, LOW);
@@ -433,32 +446,29 @@ void cambiarTemperatura() {
 
     switch (estadoTemperatura) {
         case 0:
-            
             digitalWrite(ledFrio, HIGH);
             segundos += 30;
             ajustarTiempo();
             break;
         case 1:
-            
             segundos -= 30;
             ajustarTiempo();
             break;
         case 2:
-            
             digitalWrite(ledCaliente, HIGH);
             minutos += 2;
             ajustarTiempo();
             break;
         case 3:
-           
             minutos -= 2;
             ajustarTiempo();
             break;
     }
 
-    // Alternar estado (de 0 → 1 → 2 → 3 → 0)
     estadoTemperatura = (estadoTemperatura + 1) % 4;
 }
+
+
 
 void configurarNivelAgua(int cantidad) {
     digitalWrite(ledBajoAgua, LOW);
