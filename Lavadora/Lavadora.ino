@@ -201,7 +201,7 @@ void setup() {
 }
 
 void loop() {
-    manejarBotonEncender(); // Solo se manejará este botón si el sistema está apagado
+    manejarBotonEncender(); // Solo manejar este botón si el sistema está apagado
 
     if (sistemaEncendido) {
         manejarBotones();
@@ -210,7 +210,13 @@ void loop() {
     } else {
         apagarTodo(); // Si el sistema está apagado, asegurarse de que todo esté apagado
     }
+
+    if (!enMarcha && debounce(botonTemperatura, prevEstadoTemperatura, lastUpdateTime)) {
+        cambiarTemperatura();  
+    }
 }
+
+
 
 bool debounce(int pin, bool &prevEstado, unsigned long &lastDebounceTime) {
     bool estado = digitalRead(pin);
@@ -417,49 +423,41 @@ void configurarCantidadRopa(int cantidad) {
     }
 }
 
-void configurarTemperatura(int temperatura) {
-    static int tiempoAnterior = 0; // Almacena el tiempo de la opción anterior
 
+void cambiarTemperatura() {
+    static int estadoTemperatura = 0;  // Controla el ciclo de cambios
+
+    // Apagar ambos LEDs antes de cambiar estado
     digitalWrite(ledFrio, LOW);
     digitalWrite(ledCaliente, LOW);
 
-    // Restar el tiempo de la opción anterior
-    switch (tiempoAnterior) {
-        case 1: segundos-=30; break;  // Opción 1 suma 30 segundos
-        case 2: minutos -= 2; break;  // Opción 2 suma 2 minuto
-        case 3: minutos -=1; segundos -= 30; break; // Opción 3 suma 1 minuto y 30 segundos
+    switch (estadoTemperatura) {
+        case 0:
+            
+            digitalWrite(ledFrio, HIGH);
+            segundos += 30;
+            ajustarTiempo();
+            break;
+        case 1:
+            
+            segundos -= 30;
+            ajustarTiempo();
+            break;
+        case 2:
+            
+            digitalWrite(ledCaliente, HIGH);
+            minutos += 2;
+            ajustarTiempo();
+            break;
+        case 3:
+           
+            minutos -= 2;
+            ajustarTiempo();
+            break;
     }
 
-    // Configurar la nueva opción de temperatura
-    switch (temperatura) {
-        case 1: 
-            // Selección de agua fría
-            digitalWrite(ledFrio, HIGH);
-            tiempoAnterior = 1; 
-            segundos +=30;
-            break;
-        case 2: 
-            // Selección de agua caliente
-            digitalWrite(ledCaliente, HIGH);
-            tiempoAnterior = 2; 
-            minutos += 2;
-            break;
-        case 3: 
-            // Selección de agua tibia (ambos LEDs encendidos)
-            digitalWrite(ledFrio, HIGH);
-            digitalWrite(ledCaliente, HIGH);
-            tiempoAnterior = 3; // Suma 30 segundos
-            minutos += 1;
-            segundos += 30;
-            break;
-        case 4: 
-            tiempoAnterior = 0; // No hay opción seleccionada
-            break;
-        default:
-            tiempoAnterior = 0;
-            break;
-    }
-    ajustarTiempo();
+    // Alternar estado (de 0 → 1 → 2 → 3 → 0)
+    estadoTemperatura = (estadoTemperatura + 1) % 4;
 }
 
 void configurarNivelAgua(int cantidad) {
