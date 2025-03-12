@@ -98,6 +98,7 @@ int contadorLavado = 0;
 int contadorEnjuague = 0;
 int contadorCentrifugado = 0;
 
+/*
 void setup() {
     byte numDigits = 4;
     byte digitPins[] = {PC9, PC10, PC11, PC12};
@@ -202,6 +203,146 @@ void setup() {
     sevseg.blank();
 }
 
+
+void apagarTodo() {
+    enMarcha = false;
+    cantidadSeleccionada = 0;
+    tipoLavadoSeleccionado = 0;
+    temperaturaSeleccionada = 0;
+    nivelAguaSeleccionado = 0;
+    tiempoLavadoSeleccionado = 0;
+    enjuagueSeleccionado = 0;
+    centrifugadoSeleccionado = 0;
+    horas = minutos = segundos = 0;
+
+    sevseg.blank();
+
+    int leds[] = {ledEncendido, ledVerde, ledRojo, led18kg, led12kg, led7kg, ledLavNormal, ledLavRapido, ledLavFuerte, ledFrio, ledCaliente,
+    ledBajoAgua, ledMedioAgua, ledAltoAgua, ledLav5, ledLav10, ledLav20, ledEnjuague1, ledEnjuague2, ledEnjuague3, ledCentrifugadoBajo, 
+    ledCentrifugadoMedio, ledCentrifugadoAlto}; 
+    for (int i = 0; i < 23; i++) {
+        digitalWrite(leds[i], LOW);
+    }
+}
+*/
+
+void setup() {
+    byte numDigits = 4;
+    byte digitPins[] = {PC9, PC10, PC11, PC12};
+    byte segmentPins[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
+
+    bool resistorsOnSegments = true;
+    byte hardwareConfig = COMMON_ANODE;
+    bool updateWithDelays = false;
+    bool leadingZeros = false;
+    bool disableDecPoint = false;
+
+    sevseg.begin(hardwareConfig, numDigits, digitPins, segmentPins,
+                  resistorsOnSegments, updateWithDelays, leadingZeros, disableDecPoint);
+
+    sevseg.setBrightness(90);
+
+    // **Inicializar sistema apagado**
+    sistemaEncendido = false;  
+    prevEstadoEncender = LOW; // Para evitar falsos pulsos
+
+    // **Configurar pines**
+    pinMode(botonEncenderApagar, INPUT_PULLUP);
+    pinMode(ledEncendido, OUTPUT);
+
+    pinMode(botonIniciarPausar, INPUT_PULLUP);
+    pinMode(ledVerde, OUTPUT);     
+    pinMode(ledRojo, OUTPUT);    
+
+    pinMode(botonSeleccionarLavado, INPUT_PULLUP);
+    pinMode(ledLavNormal, OUTPUT);
+    pinMode(ledLavRapido, OUTPUT);
+    pinMode(ledLavFuerte, OUTPUT);
+
+    pinMode(botonCantidadRopa, INPUT_PULLUP);
+    pinMode(led18kg, OUTPUT);
+    pinMode(led12kg, OUTPUT);
+    pinMode(led7kg, OUTPUT);
+
+    pinMode(botonTemperatura, INPUT_PULLUP);
+    pinMode(ledFrio, OUTPUT);
+    pinMode(ledCaliente, OUTPUT);
+
+    pinMode(botonNivelAgua, INPUT_PULLUP);  
+    pinMode(ledBajoAgua, OUTPUT);           
+    pinMode(ledMedioAgua, OUTPUT);          
+    pinMode(ledAltoAgua, OUTPUT);
+
+    pinMode(botonLavado, INPUT_PULLUP);       
+    pinMode(ledLav5, OUTPUT);              
+    pinMode(ledLav10, OUTPUT);              
+    pinMode(ledLav20, OUTPUT);              
+  
+    pinMode(botonEnjuague, INPUT_PULLUP);   
+    pinMode(ledEnjuague1, OUTPUT);          
+    pinMode(ledEnjuague2, OUTPUT);          
+    pinMode(ledEnjuague3, OUTPUT); 
+
+    pinMode(botonCentrifugado, INPUT_PULLUP); 
+    pinMode(ledCentrifugadoBajo, OUTPUT);        
+    pinMode(ledCentrifugadoMedio, OUTPUT);        
+    pinMode(ledCentrifugadoAlto, OUTPUT);
+
+    // **Apagar todo desde el inicio**
+    apagarTodo();
+
+    // **Configurar display**
+    horas = minutos = segundos = 0;
+    sevseg.blank();  // Asegurar que no muestre valores al inicio
+}
+
+void apagarTodo() {
+    digitalWrite(ledEncendido, LOW);
+    digitalWrite(ledVerde, LOW);
+    digitalWrite(ledRojo, LOW);
+
+    digitalWrite(led18kg, LOW);
+    digitalWrite(led12kg, LOW);
+    digitalWrite(led7kg, LOW);
+
+    digitalWrite(ledLavNormal, LOW);
+    digitalWrite(ledLavRapido, LOW);
+    digitalWrite(ledLavFuerte, LOW);
+
+    digitalWrite(ledFrio, LOW);
+    digitalWrite(ledCaliente, LOW);
+
+    digitalWrite(ledBajoAgua, LOW);
+    digitalWrite(ledMedioAgua, LOW);
+    digitalWrite(ledAltoAgua, LOW);
+
+    digitalWrite(ledLav5, LOW);
+    digitalWrite(ledLav10, LOW);
+    digitalWrite(ledLav20, LOW);
+
+    digitalWrite(ledEnjuague1, LOW);
+    digitalWrite(ledEnjuague2, LOW);
+    digitalWrite(ledEnjuague3, LOW);
+
+    digitalWrite(ledCentrifugadoBajo, LOW);
+    digitalWrite(ledCentrifugadoMedio, LOW);
+    digitalWrite(ledCentrifugadoAlto, LOW);
+
+    // **Resetear valores**
+    enMarcha = false;
+    cantidadSeleccionada = 0;
+    tipoLavadoSeleccionado = 0;
+    temperaturaSeleccionada = 0;
+    nivelAguaSeleccionado = 0;
+    tiempoLavadoSeleccionado = 0;
+    enjuagueSeleccionado = 0;
+    centrifugadoSeleccionado = 0;
+    horas = minutos = segundos = 0;
+
+    // **Apagar display**
+    sevseg.blank();
+}
+
 void loop() {
     manejarBotonEncender(); // Solo manejar este botón si el sistema está apagado
 
@@ -242,27 +383,6 @@ void manejarBotonEncender() {
     }
 }
 
-
-void apagarTodo() {
-    enMarcha = false;
-    cantidadSeleccionada = 0;
-    tipoLavadoSeleccionado = 0;
-    temperaturaSeleccionada = 0;
-    nivelAguaSeleccionado = 0;
-    tiempoLavadoSeleccionado = 0;
-    enjuagueSeleccionado = 0;
-    centrifugadoSeleccionado = 0;
-    horas = minutos = segundos = 0;
-
-    sevseg.blank();
-
-    int leds[] = {ledEncendido, ledVerde, ledRojo, led18kg, led12kg, led7kg, ledLavNormal, ledLavRapido, ledLavFuerte, ledFrio, ledCaliente,
-    ledBajoAgua, ledMedioAgua, ledAltoAgua, ledLav5, ledLav10, ledLav20, ledEnjuague1, ledEnjuague2, ledEnjuague3, ledCentrifugadoBajo, 
-    ledCentrifugadoMedio, ledCentrifugadoAlto}; 
-    for (int i = 0; i < 23; i++) {
-        digitalWrite(leds[i], LOW);
-    }
-}
 
 void manejarBotones() {
     if (debounce(botonIniciarPausar, prevEstadoIniciar, lastUpdateTime)) {
