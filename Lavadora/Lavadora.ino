@@ -335,24 +335,47 @@ void configurarTipoLavado(int tipo) {
 }
 
 void configurarCantidadRopa(int cantidad) {
+    // Apagar todos los LEDs de nivel de agua
+    digitalWrite(ledBajoAgua, LOW);
+    digitalWrite(ledMedioAgua, LOW);
+    digitalWrite(ledAltoAgua, LOW);
+
+    // Apagar todos los LEDs de cantidad de ropa
     digitalWrite(led18kg, LOW);
     digitalWrite(led12kg, LOW);
     digitalWrite(led7kg, LOW);
 
-    switch (cantidadSeleccionada) {
-      case 1: digitalWrite(led7kg, HIGH); horas = 0; minutos += 1; 
+    switch (cantidad) {
+        case 1: 
+            digitalWrite(led7kg, HIGH); // 7kg
+            // Enciende el LED de nivel de agua bajo (P13)
+            digitalWrite(ledBajoAgua, HIGH); 
+            horas = 0; 
+            minutos += 1; 
             break;
-      case 2: digitalWrite(led12kg, HIGH); horas = 0; minutos += 2; 
+        case 2: 
+            digitalWrite(led12kg, HIGH); // 12kg
+            // Enciende el LED de nivel de agua medio (P12)
+            digitalWrite(ledMedioAgua, HIGH); 
+            horas = 0; 
+            minutos += 2; 
             break;
-      case 3: digitalWrite(led18kg, HIGH); horas = 0; minutos += 3; 
+        case 3: 
+            digitalWrite(led18kg, HIGH); // 18kg
+            // Enciende el LED de nivel de agua alto (P11)
+            digitalWrite(ledAltoAgua, HIGH); 
+            horas = 0; 
+            minutos += 3; 
             break;
-      case 4: horas = 0; minutos -= 6;
+        case 4: 
+            horas = 0; 
+            minutos -= 6;
             break;
-      default:
+        default:
             horas = 0;
             minutos = 0;
             break;
-  }
+    }
 }
 
 void configurarNivelAgua(int cantidad) {
