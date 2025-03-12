@@ -1,7 +1,6 @@
 #include "SevSeg.h"
 
-SevSeg sevseg1;
-//SevSeg sevseg2;
+SevSeg sevseg;
 
 //Encender/apagar
 const int botonEncenderApagar = PC13;
@@ -91,13 +90,9 @@ const unsigned long debounceDelay = 50;
 unsigned long lastUpdateTime = 0;
 
 void setup() {
-    byte numDigits1 = 4;
-    byte digitPins1[] = {PC9, PC10, PC11, PC12};
-    byte segmentPins1[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
-
-/*    byte numDigits2 = 4;
-    byte digitPins2[] = {PA9, PA10, PA11, PA12};
-    byte segmentPins2[] = {PA1, PA2, PA3, PA4, PA5, PA6, PA7, PA8};*/
+    byte numDigits = 4;
+    byte digitPins[] = {PC9, PC10, PC11, PC12};
+    byte segmentPins[] = {PC0, PC1, PC2, PC3, PC5, PC6, PC7, PC8};
 
     bool resistorsOnSegments = true;
     byte hardwareConfig = COMMON_ANODE;
@@ -105,13 +100,10 @@ void setup() {
     bool leadingZeros = false;
     bool disableDecPoint = false;
 
-    sevseg1.begin(hardwareConfig, numDigits1, digitPins1, segmentPins1,
+    sevseg.begin(hardwareConfig, numDigits, digitPins, segmentPins,
                   resistorsOnSegments, updateWithDelays, leadingZeros, disableDecPoint);
-    /*sevseg2.begin(hardwareConfig, numDigits2, digitPins2, segmentPins2,
-                  resistorsOnSegments, updateWithDelays, leadingZeros, disableDecPoint);*/
 
-    sevseg1.setBrightness(90);
-    //sevseg2.setBrightness(90);
+    sevseg.setBrightness(90);
 
     //Encender/Apagar
     pinMode(botonEncenderApagar, INPUT_PULLUP);
@@ -196,12 +188,9 @@ void setup() {
     digitalWrite(ledCentrifugadoAlto, LOW);
    
    //setup de display
-    sevseg1.setNumber(horas * 100 + minutos, 2);
-    //sevseg2.setNumber(segundos, 2);
-    sevseg1.refreshDisplay();
-    //sevseg2.refreshDisplay();
-    sevseg1.blank();
-    //sevseg2.blank();
+    sevseg.setNumber(horas * 100 + minutos, 2);
+    sevseg.refreshDisplay();
+    sevseg.blank();
 }
 
 void loop() {
@@ -250,11 +239,12 @@ void apagarTodo() {
     centrifugadoSeleccionado = 0;
     horas = minutos = segundos = 0;
 
-    sevseg1.blank();
-    //sevseg2.blank();
+    sevseg.blank();
 
-    int leds[] = {ledEncendido, ledVerde, ledRojo, led18kg, led12kg, led7kg, ledLavNormal, ledLavRapido, ledLavFuerte};
-    for (int i = 0; i < 9; i++) {
+    int leds[] = {ledEncendido, ledVerde, ledRojo, led18kg, led12kg, led7kg, ledLavNormal, ledLavRapido, ledLavFuerte, ledFrio, ledCaliente,
+    ledBajoAgua, ledMedioAgua, ledAltoAgua, ledLav5, ledLav10, ledLav20, ledEnjuague1, ledEnjuague2, ledEnjuague3, ledCentrifugadoBajo, 
+    ledCentrifugadoMedio, ledCentrifugadoAlto}; 
+    for (int i = 0; i < 23; i++) {
         digitalWrite(leds[i], LOW);
     }
 }
@@ -464,8 +454,8 @@ void actualizarTemporizador() {
                     enMarcha = false;
                     digitalWrite(ledVerde, LOW);
                     digitalWrite(ledRojo, LOW);
-                    sevseg1.setChars("End");
-                    sevseg1.refreshDisplay();
+                    sevseg.setChars("End");
+                    sevseg.refreshDisplay();
                     return;
                     //sevseg2.blank();
                 }
@@ -476,9 +466,7 @@ void actualizarTemporizador() {
 }
 
 void mostrarTiempo() {
-    sevseg1.setNumber(minutos * 100 + segundos, 2);
-    //sevseg2.setNumber(segundos, 2);
-    sevseg1.refreshDisplay();
-    //sevseg2.refreshDisplay();
+    sevseg.setNumber(minutos * 100 + segundos, 2);
+    sevseg.refreshDisplay();
 }
 
