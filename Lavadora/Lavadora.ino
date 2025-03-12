@@ -260,7 +260,6 @@ void manejarBotones() {
           if(tipoLavadoSeleccionado == 0){
             tipoLavadoSeleccionado = 1;
             configurarTipoLavado(tipoLavadoSeleccionado);
-            tipoLavadoSeleccionado = 0;
           }
           enMarcha = !enMarcha;
           digitalWrite(ledVerde, enMarcha ? HIGH : LOW);
@@ -335,8 +334,7 @@ void configurarTipoLavado(int tipo) {
     digitalWrite(ledCentrifugadoAlto, LOW); 
 
     switch (tipo) {
-        case 1: 
-            minutos = 0; segundos = 0; 
+        case 1:  
             digitalWrite(ledLavFuerte, HIGH); minutos += 6; segundos += 0; 
             digitalWrite(ledLav20, HIGH);
             digitalWrite(ledEnjuague3, HIGH);
