@@ -360,7 +360,7 @@ void configurarTipoLavado(int tipo) {
 
     switch (tipo) {
         case 1:  
-            digitalWrite(ledLavFuerte, HIGH); minutos += 6; segundos += 0; 
+            digitalWrite(ledLavFuerte, HIGH); minutos += 33; segundos += 0; 
             digitalWrite(ledLav20, HIGH);
             digitalWrite(ledEnjuague3, HIGH);
             digitalWrite(ledCentrifugadoAlto, HIGH);
@@ -368,7 +368,7 @@ void configurarTipoLavado(int tipo) {
             contadorLavado = contadorEnjuague = contadorCentrifugado = 1;
             break;
         case 2: 
-            digitalWrite(ledLavRapido, HIGH); minutos += 1; segundos += 30;
+            digitalWrite(ledLavRapido, HIGH); minutos += 8; segundos += 0;
             digitalWrite(ledLav5, HIGH);
             digitalWrite(ledEnjuague1, HIGH);
             digitalWrite(ledCentrifugadoBajo, HIGH); 
@@ -376,7 +376,7 @@ void configurarTipoLavado(int tipo) {
             contadorLavado = contadorEnjuague = contadorCentrifugado = 3;
             break;
         case 3: 
-            digitalWrite(ledLavNormal, HIGH); minutos += 3; segundos += 0;
+            digitalWrite(ledLavNormal, HIGH); minutos += 17; segundos += 0;
             digitalWrite(ledLav10, HIGH);
             digitalWrite(ledEnjuague2, HIGH);
             digitalWrite(ledCentrifugadoMedio, HIGH); 
@@ -384,8 +384,7 @@ void configurarTipoLavado(int tipo) {
             contadorLavado = contadorEnjuague = contadorCentrifugado = 2;
             break;
         case 4:
-            minutos -= 10;
-            segundos -= 30;
+            minutos -= 58;
             contadorLavado = contadorEnjuague = contadorCentrifugado = 0;
             break;
         default:
@@ -518,17 +517,17 @@ void configurarNivelLavado(int cantidad) {
     digitalWrite(ledLav20, LOW);
 
     switch (cantidad) {
-      case 1: digitalWrite(ledLav5, HIGH); horas = 0; minutos += 0; segundos += 30; contadorLavado++;
+      case 1: digitalWrite(ledLav5, HIGH); horas = 0; minutos += 5; segundos += 0; contadorLavado++;
             break;
-      case 2: digitalWrite(ledLav10, HIGH); horas = 0; minutos += 1; segundos += 0; contadorLavado++;
+      case 2: digitalWrite(ledLav10, HIGH); horas = 0; minutos += 10; segundos += 0; contadorLavado++;
             break;
-      case 3: digitalWrite(ledLav20, HIGH); horas = 0; minutos += 2; segundos += 0; contadorLavado++;
+      case 3: digitalWrite(ledLav20, HIGH); horas = 0; minutos += 20; segundos += 0; contadorLavado++;
             break;
       case 4:
             switch (contadorLavado){
-              case 1: minutos -= 2; break;
-              case 2: minutos -= 3; break;
-              case 3: minutos -= 3; segundos -= 30; break;
+              case 1: minutos -= 20; break;
+              case 2: minutos -= 30; break;
+              case 3: minutos -= 35; break;
               default: minutos = 0; segundos = 0; break;
             }
             contadorLavado = 0;
@@ -547,17 +546,17 @@ void configurarEnjuague(int cantidad) {
     digitalWrite(ledEnjuague3, LOW);
 
     switch (cantidad) {
-      case 1: digitalWrite(ledEnjuague1, HIGH); horas = 0; minutos += 0; segundos += 30; contadorEnjuague++;
+      case 1: digitalWrite(ledEnjuague1, HIGH); horas = 0; minutos += 2; segundos += 0; contadorEnjuague++;
             break;
-      case 2: digitalWrite(ledEnjuague2, HIGH); horas = 0; minutos += 1; segundos += 0; contadorEnjuague++;
+      case 2: digitalWrite(ledEnjuague2, HIGH); horas = 0; minutos += 4; segundos += 0; contadorEnjuague++;
             break;
-      case 3: digitalWrite(ledEnjuague3, HIGH); horas = 0; minutos += 2; segundos += 0; contadorEnjuague++;
+      case 3: digitalWrite(ledEnjuague3, HIGH); horas = 0; minutos += 7; segundos += 0; contadorEnjuague++;
             break;
       case 4:
             switch (contadorEnjuague){
-              case 1: minutos -= 2; break;
-              case 2: minutos -= 3; break;
-              case 3: minutos -= 3; segundos -= 30; break;
+              case 1: minutos -= 7; break;
+              case 2: minutos -= 11; break;
+              case 3: minutos -= 13; break;
               default: minutos = 0; segundos = 0; break;
             }
             contadorEnjuague = 0;
@@ -576,17 +575,17 @@ void configurarCentrifugado(int cantidad) {
     digitalWrite(ledCentrifugadoAlto, LOW);
 
     switch (cantidad) {
-      case 1: digitalWrite(ledCentrifugadoBajo, HIGH); horas = 0; minutos += 0; segundos += 30; contadorCentrifugado++;
+      case 1: digitalWrite(ledCentrifugadoBajo, HIGH); horas = 0; minutos += 1; segundos += 0; contadorCentrifugado++;
             break;
-      case 2: digitalWrite(ledCentrifugadoMedio, HIGH); horas = 0; minutos += 1; segundos += 0; contadorCentrifugado++;
+      case 2: digitalWrite(ledCentrifugadoMedio, HIGH); horas = 0; minutos += 3; segundos += 0; contadorCentrifugado++;
             break;
-      case 3: digitalWrite(ledCentrifugadoAlto, HIGH); horas = 0; minutos += 2; segundos += 0; contadorCentrifugado++;
+      case 3: digitalWrite(ledCentrifugadoAlto, HIGH); horas = 0; minutos += 6; segundos += 0; contadorCentrifugado++;
             break;
       case 4: 
             switch (contadorCentrifugado){
-              case 1: minutos -= 2; break;
-              case 2: minutos -= 3; break;
-              case 3: minutos -= 3; segundos -= 30; break;
+              case 1: minutos -= 6; break;
+              case 2: minutos -= 9; break;
+              case 3: minutos -= 10; break;
               default: minutos = 0; segundos = 0; break;
             }
             contadorCentrifugado = 0;
@@ -600,6 +599,7 @@ void configurarCentrifugado(int cantidad) {
 }
 
 void actualizarTemporizador() {
+    static unsigned long endTime = 0;  // Guarda el tiempo cuando llega a "END"
     if (enMarcha && millis() - lastUpdateTime >= 1000) {
         lastUpdateTime += 1000;
         if (--segundos < 0) {
@@ -611,15 +611,25 @@ void actualizarTemporizador() {
                     enMarcha = false;
                     digitalWrite(ledVerde, LOW);
                     digitalWrite(ledRojo, LOW);
-                    sevseg.blank();  // Limpiar el display
-                    sevseg.setChars("End");  // Mostrar "End"
+
+                    // Mostrar "END" en el display
+                    char mensaje[4] = {'E', 'n', 'd', ' '};
+                    sevseg.setChars(mensaje);
                     sevseg.refreshDisplay();
+
+                    // Guardamos el momento exacto en que mostramos "END"
+                    endTime = millis();
                     return;
-                    //sevseg2.blank();
                 }
             }
             mostrarTiempo();
         }
+    }
+
+    // Verificar si han pasado 2 segundos desde que mostramos "END"
+    if (!enMarcha && endTime > 0 && millis() - endTime >= 2000) {
+        apagarTodo();  // Llamar a la función después de 2 segundos
+        endTime = 0;  // Reseteamos el tiempo para evitar que se llame varias veces
     }
 }
 
